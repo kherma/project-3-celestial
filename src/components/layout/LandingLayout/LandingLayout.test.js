@@ -1,10 +1,10 @@
 import React from 'react';
-import { CreateProfile } from './CreateProfile';
+import { LandingLayout } from './LandingLayout';
 import { shallow } from 'enzyme';
 
-describe('Component CreateProfile', () => {
+describe('Component LandingLayout', () => {
   it('Should render without crashing', () => {
-    const component = shallow(<CreateProfile />);
+    const component = shallow(<LandingLayout />);
     expect(component).toBeTruthy();
   });
 });

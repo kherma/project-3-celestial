@@ -1,12 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
-import { MainLayout } from './components/layout/MainLayout/MainLayout';
+import LandingLayoutRoutes from './routes/LandingLayoutRoutes';
+import DashboardLayoutRoutes from './routes/DashboardLayoutRoutes';
 
 import { HomePage } from './components/views/HomePage/HomePage';
-import { CreateProfile } from './components/views/CreateProfile/CreateProfile';
+import { Dashboard } from './components/views/Dashboard/Dashboard';
 import { Explore } from './components/views/Explore/Explore';
 import { Discover } from './components/views/Discover/Discover';
 import { PlanetPage } from './components/views/PlanetPage/PlanetPage';
@@ -18,18 +19,24 @@ const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <MainLayout>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/create-profile" component={CreateProfile} />
-            <Route exact path="/explore" component={Explore} />
-            <Route exact path="/discover" component={Discover} />
-            <Route exact path="/planet/:id" component={PlanetPage} />
-            <Route exact path="/settings" component={Settings} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="*" component={NotFound} />
-          </Switch>
-        </MainLayout>
+        <Switch>
+          <LandingLayoutRoutes exact path="/" component={HomePage} />
+          <DashboardLayoutRoutes
+            exact
+            path="/dashboard"
+            component={Dashboard}
+          />
+          <DashboardLayoutRoutes exact path="/explore" component={Explore} />
+          <DashboardLayoutRoutes exact path="/discover" component={Discover} />
+          <DashboardLayoutRoutes
+            exact
+            path="/planet/:id"
+            component={PlanetPage}
+          />
+          <DashboardLayoutRoutes exact path="/settings" component={Settings} />
+          <DashboardLayoutRoutes exact path="/cart" component={Cart} />
+          <DashboardLayoutRoutes exact path="*" component={NotFound} />
+        </Switch>
       </BrowserRouter>
     </Provider>
   );

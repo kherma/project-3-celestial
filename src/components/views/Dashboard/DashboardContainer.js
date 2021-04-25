@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { MainLayout } from './MainLayout';
+import { Dashboard } from './Dashboard';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(MainLayout);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Dashboard);
 
-export { Container as MainLayout };
+export { Container as Dashboard };

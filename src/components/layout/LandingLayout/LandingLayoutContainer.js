@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { CreateProfile } from './CreateProfile';
+import { LandingLayout } from './LandingLayout';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(CreateProfile);
+const Container = connect(mapStateToProps, mapDispatchToProps)(LandingLayout);
 
-export { Container as CreateProfile };
+export { Container as LandingLayout };
