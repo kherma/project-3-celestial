@@ -1,2 +1,26 @@
 @import './settings.scss';
 @import './typography.scss';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  // Define 1rem unit = 10px;
+  font-size: 62.5%;
+  font-family: $font-main;
+  font-weight: $regular;
+  line-height: 1.5;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}

@@ -1,0 +1,40 @@
+@import './settings.scss';
+h1 {
+  font-size: 8rem;
+  font-weight: $bold;
+}
+
+h2 {
+  font-size: 6rem;
+  font-weight: $medium;
+}
+
+h3 {
+  font-size: 4.5rem;
+  font-weight: $regular;
+}
+
+h4 {
+  font-size: 4rem;
+  font-weight: $regular;
+}
+
+h5 {
+  font-size: 3rem;
+  font-weight: $regular;
+}
+
+h6 {
+  font-size: 2rem;
+  font-weight: $light;
+}
+
+p {
+  font-size: 1.6rem;
+  font-weight: $regular;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+}
