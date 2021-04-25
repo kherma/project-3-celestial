@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './{{pascalCase name}}.module.scss';
 import PropTypes from 'prop-types';
 
-const Component = ({children }) => {
+const {{pascalCase name}} = ({children }) => {
   return (
     <div className={styles.root}>
       <h2>{{pascalCase name}}</h2>
@@ -11,8 +11,8 @@ const Component = ({children }) => {
   );
 };
 
-Component.propTypes = {
+{{pascalCase name}}.propTypes = {
   children: PropTypes.node,
 };
 
-export { Component as {{pascalCase name}} };
+export default {{pascalCase name}} ;

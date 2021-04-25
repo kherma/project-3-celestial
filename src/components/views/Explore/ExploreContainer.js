@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Explore } from './Explore';
+import Explore from './Explore';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(Explore);
-
-export { Container as Explore };
+export default connect(mapStateToProps, mapDispatchToProps)(Explore);

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Discover } from './Discover';
+import Discover from './Discover';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(Discover);
-
-export { Container as Discover };
+export default connect(mapStateToProps, mapDispatchToProps)(Discover);

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Cart } from './Cart';
+import Cart from './Cart';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(Cart);
-
-export { Container as Cart };
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

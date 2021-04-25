@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
-import { DashboardLayout } from '../components/layout/DashboardLayout/DashboardLayout';
+import DashboardLayout from '../components/layout/DashboardLayout/DashboardLayout';
 
 const DashboardLayoutRoutes = ({ component: Component, ...rest }) => {
   return (
@@ -18,7 +18,7 @@ const DashboardLayoutRoutes = ({ component: Component, ...rest }) => {
 };
 
 DashboardLayoutRoutes.propTypes = {
-  component: PropTypes.func,
+  component: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 };
 
 export default DashboardLayoutRoutes;

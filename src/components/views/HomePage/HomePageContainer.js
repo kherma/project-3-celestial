@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { HomePage } from './HomePage';
+import HomePage from './HomePage';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(HomePage);
-
-export { Container as HomePage };
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

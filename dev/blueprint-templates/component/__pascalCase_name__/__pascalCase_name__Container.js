@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { {{pascalCase name}} } from './{{pascalCase name}}';
+import {{pascalCase name}} from './{{pascalCase name}}';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)({{pascalCase name}});
-
-export { Container as {{pascalCase name}} };
+export default connect(mapStateToProps, mapDispatchToProps)({{pascalCase name}});

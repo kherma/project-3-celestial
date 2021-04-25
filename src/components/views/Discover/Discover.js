@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Discover.module.scss';
 import PropTypes from 'prop-types';
 
-const Component = ({children }) => {
+const Discover = ({children }) => {
   return (
     <div className={styles.root}>
       <h2>Discover</h2>
@@ -11,8 +11,8 @@ const Component = ({children }) => {
   );
 };
 
-Component.propTypes = {
+Discover.propTypes = {
   children: PropTypes.node,
 };
 
-export { Component as Discover };
+export default Discover ;

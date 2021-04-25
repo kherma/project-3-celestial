@@ -1,5 +1,5 @@
 import React from 'react';
-import { NotFound } from './NotFound';
+import NotFound from './NotFound';
 import { shallow } from 'enzyme';
 
 describe('Component NotFound', () => {

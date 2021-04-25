@@ -1,5 +1,5 @@
 import React from 'react';
-import { DashboardLayout } from './DashboardLayout';
+import DashboardLayout from './DashboardLayout';
 import { shallow } from 'enzyme';
 
 describe('Component DashboardLayout', () => {

@@ -2,12 +2,17 @@ import React from 'react';
 import styles from './LandingLayout.module.scss';
 import PropTypes from 'prop-types';
 
-const Component = ({ children }) => {
-  return <div className={styles.root}>{children}</div>;
+const LandingLayout = ({children }) => {
+  return (
+    <div className={styles.root}>
+      <h2>LandingLayout</h2>
+      {children}
+    </div>
+  );
 };
 
-Component.propTypes = {
+LandingLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export { Component as LandingLayout };
+export default LandingLayout ;

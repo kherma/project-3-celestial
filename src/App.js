@@ -6,14 +6,14 @@ import store from './redux/store';
 import LandingLayoutRoutes from './routes/LandingLayoutRoutes';
 import DashboardLayoutRoutes from './routes/DashboardLayoutRoutes';
 
-import { HomePage } from './components/views/HomePage/HomePage';
-import { Dashboard } from './components/views/Dashboard/Dashboard';
-import { Explore } from './components/views/Explore/Explore';
-import { Discover } from './components/views/Discover/Discover';
-import { PlanetPage } from './components/views/PlanetPage/PlanetPage';
-import { Settings } from './components/views/Settings/Settings';
-import { Cart } from './components/views/Cart/Cart';
-import { NotFound } from './components/views/NotFound/NotFound';
+import HomePage from './components/views/HomePage/HomePage';
+import Dashboard from './components/views/Dashboard/Dashboard';
+import Explore from './components/views/Explore/Explore';
+import Discover from './components/views/Discover/Discover';
+import PlanetPage from './components/views/PlanetPage/PlanetPage';
+import Settings from './components/views/Settings/Settings';
+import Cart from './components/views/Cart/Cart';
+import NotFound from './components/views/NotFound/NotFound';
 
 const App = () => {
   return (

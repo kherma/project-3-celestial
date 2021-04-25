@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './DashboardLayout.module.scss';
 import PropTypes from 'prop-types';
 
-const Component = ({children }) => {
+const DashboardLayout = ({children }) => {
   return (
     <div className={styles.root}>
       <h2>DashboardLayout</h2>
@@ -11,8 +11,8 @@ const Component = ({children }) => {
   );
 };
 
-Component.propTypes = {
+DashboardLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export { Component as DashboardLayout };
+export default DashboardLayout ;

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Explore.module.scss';
 import PropTypes from 'prop-types';
 
-const Component = ({children }) => {
+const Explore = ({children }) => {
   return (
     <div className={styles.root}>
       <h2>Explore</h2>
@@ -11,8 +11,8 @@ const Component = ({children }) => {
   );
 };
 
-Component.propTypes = {
+Explore.propTypes = {
   children: PropTypes.node,
 };
 
-export { Component as Explore };
+export default Explore ;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlanetPage } from './PlanetPage';
+import PlanetPage from './PlanetPage';
 import { shallow } from 'enzyme';
 
 describe('Component PlanetPage', () => {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Settings } from './Settings';
+import Settings from './Settings';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(Settings);
-
-export { Container as Settings };
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);

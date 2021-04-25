@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './NotFound.module.scss';
 import PropTypes from 'prop-types';
 
-const Component = ({children }) => {
+const NotFound = ({children }) => {
   return (
     <div className={styles.root}>
       <h2>NotFound</h2>
@@ -11,8 +11,8 @@ const Component = ({children }) => {
   );
 };
 
-Component.propTypes = {
+NotFound.propTypes = {
   children: PropTypes.node,
 };
 
-export { Component as NotFound };
+export default NotFound ;

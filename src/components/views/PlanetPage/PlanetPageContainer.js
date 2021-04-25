@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { PlanetPage } from './PlanetPage';
+import PlanetPage from './PlanetPage';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(PlanetPage);
-
-export { Container as PlanetPage };
+export default connect(mapStateToProps, mapDispatchToProps)(PlanetPage);

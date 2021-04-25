@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './HomePage.module.scss';
 import PropTypes from 'prop-types';
 
-const Component = ({children }) => {
+const HomePage = ({children }) => {
   return (
     <div className={styles.root}>
       <h2>HomePage</h2>
@@ -11,8 +11,8 @@ const Component = ({children }) => {
   );
 };
 
-Component.propTypes = {
+HomePage.propTypes = {
   children: PropTypes.node,
 };
 
-export { Component as HomePage };
+export default HomePage ;

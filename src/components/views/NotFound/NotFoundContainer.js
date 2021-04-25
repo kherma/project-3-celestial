@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { NotFound } from './NotFound';
+import NotFound from './NotFound';
 import {
   sampleSelector,
   sampleActionCreator,
@@ -13,6 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   action: (arg) => dispatch(sampleActionCreator(arg)),
 });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(NotFound);
-
-export { Container as NotFound };
+export default connect(mapStateToProps, mapDispatchToProps)(NotFound);

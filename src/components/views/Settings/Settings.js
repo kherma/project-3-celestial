@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Settings.module.scss';
 import PropTypes from 'prop-types';
 
-const Component = ({children }) => {
+const Settings = ({children }) => {
   return (
     <div className={styles.root}>
       <h2>Settings</h2>
@@ -11,8 +11,8 @@ const Component = ({children }) => {
   );
 };
 
-Component.propTypes = {
+Settings.propTypes = {
   children: PropTypes.node,
 };
 
-export { Component as Settings };
+export default Settings ;
