@@ -1,4 +1,75 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  padding: 1rem 2rem;
+  // background-color: $primary-pink-1;
+  font-family: $font-logo;
+  color: $primary-yellow-1;
+  text-shadow: -0.5rem 0.5rem 0 $primary-pink-1;
+}
+
+.logo {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  perspective: 100rem;
+}
+
+.bag {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotateZ(15deg);
+  width: 5rem;
+  height: 7rem;
+  background-color: $light;
+  clip-path: polygon(0 0, 100% 0, 100%);
+  box-shadow: inset 0 1rem 0 0 $grey-light-3, inset 0 1.5rem 0 0 $grey,
+    inset 1rem -1rem 0 0 $grey-light-3, inset -1rem -1rem 0 0 $grey-light-3;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 5px solid $light;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(
+      90deg,
+      $primary-pink-1,
+      $primary-yellow-1,
+      $primary-green-1,
+      $primary-red-1
+    );
+    width: 2rem;
+    height: 2rem;
+    top: 60%;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  // animation: test 10s linear infinite;
+}
+
+@keyframes test {
+  100% {
+    transform: translateX(-50%) rotateZ(15deg) rotateY(360deg);
+  }
+}
