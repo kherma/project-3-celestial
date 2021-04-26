@@ -1,0 +1,130 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.walkMan {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $primary-yellow-2;
+  border-radius: 4rem;
+  box-shadow: inset 0px 10px 0px 0 $primary-yellow-1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 30%;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $light;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        $light 30%,
+        transparent 30%,
+        transparent 48%,
+        $grey-dark-2 48%,
+        $grey-dark-2 52%,
+        transparent 52%,
+        transparent 70%,
+        $light 70%
+      ),
+      linear-gradient(
+        to right,
+        transparent 0.4rem,
+        $grey-dark-1 0.4rem,
+        $grey-dark-1 0.6rem,
+        transparent 0.6rem
+      );
+    background-size: 100% 100%, 10%, 100%;
+    background-position: center, center;
+    box-shadow: inset -1rem -0.5rem 0 0 $grey-light-2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 40%;
+    border-radius: 4rem;
+    background-image: radial-gradient(
+      circle at 10% 10%,
+      $primary-yellow-3 10%,
+      transparent 10%
+    );
+    background-size: 1rem 1rem;
+  }
+}
+
+.switch {
+  position: absolute;
+  display: inline-block;
+  background: $primary-pink-1;
+  width: 2rem;
+  height: 4rem;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(50%);
+  animation: slide 30s cubic-bezier(1, -0.14, 0, 1.45) infinite;
+}
+
+@keyframes slide {
+  0% {
+    left: 50%;
+  }
+  10% {
+    left: 20%;
+  }
+  30% {
+    left: 70%;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 50%;
+  }
+}
+
+.controllers {
+  position: absolute;
+  right: 5rem;
+  top: -2.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 9rem;
+
+  & > * {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    transition: all 0.2s;
+
+    &:active {
+      transform-origin: bottom;
+      transform: scaleY(0.8);
+    }
+
+    &:first-child {
+      background-color: $primary-red-1;
+      box-shadow: inset -5px -5px 0 0 $primary-red-2,
+        inset -7px -5px 0 0 $grey-light-3;
+    }
+    &:last-child {
+      background-color: $primary-green-1;
+      box-shadow: inset -5px -5px 0 0 $primary-green-2,
+        inset -7px -5px 0 0 $grey-light-3;
+    }
+  }
+}

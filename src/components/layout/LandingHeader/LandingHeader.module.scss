@@ -1,0 +1,9 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  background-color: $grey-dark-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
