@@ -5,9 +5,9 @@ import CelestialLogo from '../../common/CelestialLogo/CelestialLogo';
 
 const LandingHeader = () => {
   return (
-    <div className={styles.root}>
+    <header className={styles.root}>
       <CelestialLogo />
-    </div>
+    </header>
   );
 };
 

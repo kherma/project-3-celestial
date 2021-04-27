@@ -1,5 +1,16 @@
 @import '../../../styles/settings.scss';
 
 .root {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.article {
   background-color: $landing-purple-1;
 }

@@ -6,13 +6,13 @@ import WalkMan from '../../common/WalkMan/WalkMan';
 
 const LandingFooter = () => {
   return (
-    <div className={styles.root}>
+    <footer className={styles.root}>
       <WalkMan />
       <FooterInfo />
-    </div>
+    </footer>
   );
 };
 
 export default LandingFooter;
 
-// Copyright &copy; 2021 Celestial All imaginary multiverse intergalactic multidimensional earthly rights reserved
+//imaginary multiverse intergalactic multidimensional earthly
