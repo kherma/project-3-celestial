@@ -110,10 +110,14 @@
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     transition: all 0.2s;
+    transform-origin: bottom;
+
+    &:hover {
+      transform: scaleY(1.1);
+    }
 
     &:active {
-      transform-origin: bottom;
-      transform: scaleY(0.8);
+      transform: scaleY(0.9);
     }
 
     &:first-child {

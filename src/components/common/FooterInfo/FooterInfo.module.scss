@@ -48,8 +48,14 @@
       0 0.3rem 0.1rem rgba($dark, 0.2);
     transition: all 0.2s;
 
+    &:hover {
+      box-shadow: inset 4px 2px 0 0 $grey-light-1;
+      transform: translate(0.1rem, 0.1rem);
+    }
+
     &:active {
       box-shadow: inset 2px 1px 0 0 $grey-light-1;
+      transform: translate(-0.1rem, -0.1rem);
     }
   }
 }

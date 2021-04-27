@@ -99,11 +99,13 @@
     font-size: 1.3rem;
     box-shadow: inset 0 0.2rem 0 0 $primary-pink-2, 0 0.5rem 0 0 $primary-pink-3;
     transition: all 0.2s;
+    transition: color 0.4s;
 
     &:hover {
       box-shadow: inset 0 0.1rem 0 0 $primary-pink-2,
         0 0.6rem 0 0 $primary-pink-3;
       transform: translateY(-0.1rem);
+      color: $primary-pink-3;
     }
 
     &:active {
