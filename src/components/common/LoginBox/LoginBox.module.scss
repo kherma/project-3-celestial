@@ -73,6 +73,11 @@
   z-index: 20;
 }
 
+.textSpecial {
+  color: $primary-green-1;
+  text-shadow: -0.1rem 0.1rem 0 $primary-green-2;
+}
+
 .buttonLogin {
   z-index: 20;
   color: $light;

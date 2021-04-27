@@ -127,6 +127,12 @@
   animation: text-anim 5s 2s ease-in-out forwards;
 }
 
+.logoText {
+  font-family: $font-logo;
+  color: $primary-yellow-1;
+  text-shadow: -0.3rem 0.3rem 0 $primary-pink-1;
+}
+
 @keyframes text-anim {
   0% {
     transform: translateZ(10rem);
