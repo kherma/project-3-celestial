@@ -6,3 +6,12 @@
   grid-template-rows: auto 1fr auto;
   background-color: $grey-dark-3;
 }
+
+.main {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+// aside {
+//   display: grid;
+// }

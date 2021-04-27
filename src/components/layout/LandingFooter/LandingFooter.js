@@ -7,8 +7,8 @@ import WalkMan from '../../common/WalkMan/WalkMan';
 const LandingFooter = () => {
   return (
     <div className={styles.root}>
-      <FooterInfo />
       <WalkMan />
+      <FooterInfo />
     </div>
   );
 };
