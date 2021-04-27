@@ -12,11 +12,12 @@
   font-family: $font-logo;
   color: $primary-yellow-1;
   text-shadow: -0.5rem 0.5rem 0 $primary-pink-1;
+  z-index: 10;
 }
 
 .logo {
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
   position: relative;
   &:hover {
     & .bag {

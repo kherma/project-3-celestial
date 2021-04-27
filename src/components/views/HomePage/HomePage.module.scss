@@ -3,13 +3,14 @@
 .root {
   display: grid;
   grid-template-columns: auto 1fr;
+  padding: 0 5rem;
 }
 
 .aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
+  margin-left: 5rem;
 }
 
 .article {
@@ -17,13 +18,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5rem 5rem 10rem 10rem;
 }
 
 .terminal {
   perspective: 100rem;
   position: relative;
-  width: 90%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   background-color: transparent;
   border-bottom: 0.8rem solid $landing-purple-3;
   box-shadow: inset 0.5rem 0 0 0 $landing-purple-2,
@@ -54,7 +56,7 @@
       transparent 90%
     );
     background-size: 1rem 1rem;
-    background-position: 20% center;
+    background-position: 10% center;
   }
 
   &::before {
@@ -67,7 +69,7 @@
 
 .screen {
   position: relative;
-  background-color: $primary-blue-1;
+  background-color: $primary-blue-6;
   width: calc(100% - 12rem);
   height: calc(100% - 12rem);
   border-radius: 2rem;
@@ -76,8 +78,8 @@
   align-items: center;
   padding: 0 10rem;
   overflow: hidden;
-  box-shadow: inset 1.5rem 0.5rem 0 0 $primary-blue-2,
-    inset -1.5rem 0.5rem 0 0 $primary-blue-2;
+  box-shadow: inset 1.5rem 0.5rem 0 0 $primary-blue-5,
+    inset -1.5rem 0.5rem 0 0 $primary-blue-5;
 
   &::before {
     content: '';
@@ -86,7 +88,7 @@
     height: calc(100% - 0.5rem);
     width: 10%;
     opacity: 0;
-    background: rgba($light, 0.5);
+    background: rgba($primary-blue-3, 0.3);
     transform: skew(-30deg);
     animation: screen-slide 23s 10s linear infinite;
   }
@@ -97,11 +99,11 @@
     opacity: 1;
     transform: skew(-30deg) translateX(-300%);
   }
-  5% {
+  8% {
     opacity: 1;
     transform: skew(-30deg) translateX(300%);
   }
-  7% {
+  10% {
     opacity: 0;
   }
 
@@ -112,25 +114,13 @@
 .terminalText {
   position: relative;
   text-align: center;
-  color: $primary-blue-2;
+  color: $primary-yellow-2;
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
   opacity: 0;
   transform: translateZ(-10rem) translateY(-1rem);
   animation: text-anim 5s 2s ease-in-out forwards;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 85%;
-    height: 10%;
-    background: rgba($dark, 0.1);
-    bottom: -45%;
-    border-radius: 20%;
-    filter: blur(0.5rem);
-    animation: shadow-anim 5s 2s ease-in-out forwards;
-  }
 }
 
 @keyframes text-anim {
@@ -150,25 +140,6 @@
   100% {
     opacity: 1;
     transform: translateZ(-10rem) translateY(-1rem);
-  }
-}
-
-@keyframes shadow-anim {
-  25% {
-    transform: scale(1.05) translateY(-0.5rem);
-    background: rgba($dark, 0.15);
-  }
-  50% {
-    transform: scale(1.1) translateY(-1rem);
-    background: rgba($dark, 0.2);
-  }
-  75% {
-    transform: scale(1);
-    background: rgba($dark, 0.15);
-  }
-  100% {
-    transform: scale(1);
-    background: rgba($dark, 0.15);
   }
 }
 
