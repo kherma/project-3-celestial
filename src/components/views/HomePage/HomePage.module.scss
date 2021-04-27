@@ -23,6 +23,8 @@
 
 .terminal {
   perspective: 100rem;
+  -webkit-perspective: 100rem;
+  -moz-perspective: 100rem;
   position: relative;
   width: 100%;
   height: 100%;
@@ -120,26 +122,38 @@
   text-transform: uppercase;
   opacity: 0;
   transform: translateZ(-10rem) translateY(-1rem);
+  -webkit-transform: translateZ(-10rem) translateY(-1rem);
+  -moz-transform: translateZ(-10rem) translateY(-1rem);
   animation: text-anim 5s 2s ease-in-out forwards;
 }
 
 @keyframes text-anim {
   0% {
     transform: translateZ(10rem);
+    -webkit-transform: translateZ(10rem);
+    -moz-transform: translateZ(10rem);
   }
   25% {
     opacity: 1;
     transform: translateZ(-10rem) translateY(0.5rem);
+    -webkit-transform: translateZ(-10rem) translateY(0.5rem);
+    -moz-transform: translateZ(-10rem) translateY(0.5rem);
   }
   50% {
     transform: translateZ(-10rem) translateY(1rem);
+    -webkit-transform: translateZ(-10rem) translateY(1rem);
+    -moz-transform: translateZ(-10rem) translateY(1rem);
   }
   75% {
     transform: translateZ(-10rem) translateY(-1rem);
+    -webkit-transform: translateZ(-10rem) translateY(-1rem);
+    -moz-transform: translateZ(-10rem) translateY(-1rem);
   }
   100% {
     opacity: 1;
     transform: translateZ(-10rem) translateY(-1rem);
+    -webkit-transform: translateZ(-10rem) translateY(-1rem);
+    -moz-transform: translateZ(-10rem) translateY(-1rem);
   }
 }
 
@@ -148,6 +162,8 @@
   width: 70%;
   height: 40%;
   transform: rotateX(70deg) translateY(0);
+  -webkit-transform: rotateX(70deg) translateY(0);
+  -moz-transform: rotateX(70deg) translateY(0);
   bottom: 5%;
   background-image: linear-gradient($primary-pink-1 0.2rem, transparent 0.2rem),
     linear-gradient(90deg, $primary-pink-1 0.2rem, transparent 0.2rem);
@@ -159,8 +175,12 @@
 @keyframes grid-anim {
   from {
     transform: rotateX(70deg) rotateZ(-180deg) translateY(-30rem);
+    -webkit-transform: rotateX(70deg) rotateZ(-180deg) translateY(-30rem);
+    -moz-transform: rotateX(70deg) rotateZ(-180deg) translateY(-30rem);
   }
   to {
     transform: rotateX(70deg) translateY(0);
+    -webkit-transform: rotateX(70deg) translateY(0);
+    -moz-transform: rotateX(70deg) translateY(0);
   }
 }
