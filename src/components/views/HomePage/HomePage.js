@@ -12,7 +12,16 @@ const HomePage = () => {
         <MainInfoBox />
       </aside>
       <article className={styles.article}>
-        <h2>HomePage</h2>
+        <section className={styles.terminal}>
+          <div className={styles.screen}>
+            <p className={styles.terminalText}>
+              With the year 2021, the earth and all intelligent creatures that
+              inhabit it gain access to the imaginary interdimensional
+              celestials auction.
+            </p>
+            <span className={styles.terminalGrid}></span>
+          </div>
+        </section>
       </article>
     </main>
   );

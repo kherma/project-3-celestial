@@ -45,11 +45,11 @@
     z-index: 1;
     bottom: 0;
 
-    animation: screen-slice 10s linear infinite;
+    animation: screen-slide 10s linear infinite;
   }
 }
 
-@keyframes screen-slice {
+@keyframes screen-slide {
   0% {
     opacity: 1;
     transform: skew(-30deg) translateX(-100%);
