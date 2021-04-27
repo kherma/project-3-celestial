@@ -9,7 +9,6 @@
 
 .text {
   padding: 1rem 2rem;
-  // background-color: $primary-pink-1;
   font-family: $font-logo;
   color: $primary-yellow-1;
   text-shadow: -0.5rem 0.5rem 0 $primary-pink-1;
@@ -19,14 +18,27 @@
   width: 10rem;
   height: 10rem;
   position: relative;
-  perspective: 100rem;
+  &:hover {
+    & .bag {
+      transform: translate(-50%, 1rem) rotate(0deg);
+      &::before {
+        transform: rotateX(180deg) rotate(0deg) translate(-50%, -1rem);
+      }
+    }
+
+    & .planet {
+      transform: translate(-50%, -4rem) scale(1);
+    }
+  }
 }
 
 .bag {
   position: absolute;
+  z-index: 20;
+  transition: all 1s 0.5s;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%) rotateZ(15deg);
+  transform: translateX(-50%) rotate(15deg);
   width: 5rem;
   height: 7rem;
   background-color: $light;
@@ -37,6 +49,7 @@
   &::before {
     content: '';
     position: absolute;
+    transition: all 1s 0.2s;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -64,12 +77,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
-  // animation: test 10s linear infinite;
 }
 
-@keyframes test {
-  100% {
-    transform: translateX(-50%) rotateZ(15deg) rotateY(360deg);
-  }
+.planet {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    $primary-pink-1,
+    $primary-yellow-1,
+    $primary-green-1,
+    $primary-red-1
+  );
+  transition: all 1s 0.2s;
+  left: 50%;
+  bottom: 0;
+  z-index: 10;
+  transform: translateX(-50%) scale(0.1);
 }

@@ -7,6 +7,7 @@ const CelestialLogo = () => {
       <h1 className={styles.text}>Celestial</h1>
       <div className={styles.logo}>
         <div className={styles.bag}></div>
+        <div className={styles.planet}></div>
       </div>
     </div>
   );
