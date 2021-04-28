@@ -1,4 +1,5 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
 .root {
   background-color: $primary-blue-2;
@@ -13,6 +14,10 @@
   border-radius: 1rem;
   display: grid;
   grid-template-columns: 1fr;
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .screen {

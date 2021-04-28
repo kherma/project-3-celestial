@@ -1,0 +1,272 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
+
+.root {
+  position: relative;
+  perspective: 100rem;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-bottom: 0.8rem solid $landing-purple-3;
+  box-shadow: inset 0.5rem 0 0 0 $landing-purple-2,
+    inset -0.5rem 0 0 0 $landing-purple-2, inset 3rem 1rem 0 0 $landing-purple-1,
+    inset -3rem 1rem 0 0 $landing-purple-1,
+    inset 3rem -1rem 0 0 $landing-purple-1,
+    inset -3rem -1rem 0 0 $landing-purple-1, inset 0 0 0 7rem $landing-purple-2;
+
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include tablet {
+    height: 50rem;
+  }
+
+  @include mobile {
+    width: 100%;
+    height: 60rem;
+    box-shadow: inset 0.5rem 0 0 0 $landing-purple-2,
+      inset -0.5rem 0 0 0 $landing-purple-2,
+      inset 2rem 1rem 0 0 $landing-purple-1,
+      inset -2rem 1rem 0 0 $landing-purple-1,
+      inset 2rem -1rem 0 0 $landing-purple-1,
+      inset -2rem -1rem 0 0 $landing-purple-1,
+      inset 0 0 0 7rem $landing-purple-2;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 2rem;
+    border-radius: 2rem;
+    background-image: linear-gradient(
+      90deg,
+      transparent 10%,
+      $landing-purple-2 10%,
+      $landing-purple-2 20%,
+      $landing-purple-4 20%,
+      $landing-purple-4 90%,
+      transparent 90%
+    );
+    background-size: 1rem 1rem;
+    background-position: 10% center;
+
+    @include mobile {
+      width: 60%;
+      background-position: center center;
+    }
+  }
+
+  &::before {
+    top: 2rem;
+  }
+  &::after {
+    bottom: 2rem;
+  }
+}
+
+.screen {
+  position: relative;
+  background-color: $primary-blue-6;
+  width: calc(100% - 12rem);
+  height: calc(100% - 12rem);
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10rem;
+  overflow: hidden;
+  box-shadow: inset 1.5rem 0.5rem 0 0 $primary-blue-5,
+    inset -1.5rem 0.5rem 0 0 $primary-blue-5;
+
+  @include tablet {
+    padding: 0 1rem;
+  }
+
+  @include mobile {
+    padding: 0 1rem;
+    box-shadow: inset 0.5rem 0.5rem 0 0 $primary-blue-5,
+      inset -0.5rem 0.5rem 0 0 $primary-blue-5;
+    width: calc(100% - 7rem);
+    height: calc(100% - 10rem);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: calc(100% - 0.5rem);
+    width: 10%;
+    opacity: 0;
+    background: rgba($primary-blue-3, 0.3);
+    transform: skew(-30deg);
+    animation: screen-slide 23s 10s linear infinite;
+
+    @include tablet {
+      animation: tablet-screen-slide 23s 10s linear infinite;
+      transform: skew(-20deg);
+    }
+
+    @include mobile {
+      animation: mobile-screen-slide 23s 10s linear infinite;
+      transform: skew(-7deg);
+    }
+  }
+}
+
+@keyframes screen-slide {
+  0% {
+    opacity: 1;
+    transform: skew(-30deg) translateX(-300%);
+  }
+  8% {
+    opacity: 1;
+    transform: skew(-30deg) translateX(300%);
+  }
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes tablet-screen-slide {
+  0% {
+    opacity: 1;
+    transform: skew(-20deg) translateX(-300%);
+  }
+  8% {
+    opacity: 1;
+    transform: skew(-20deg) translateX(200%);
+  }
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes mobile-screen-slide {
+  0% {
+    opacity: 1;
+    transform: skew(-7deg) translateX(-300%);
+  }
+  3% {
+    opacity: 1;
+    transform: skew(-7deg) translateX(200%);
+  }
+  5% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.terminalText {
+  position: relative;
+  text-align: center;
+  color: $primary-yellow-2;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateZ(-10rem) translateY(-1rem);
+
+  animation: text-anim 5s 2s ease-in-out forwards;
+
+  @include tablet {
+    font-size: 2rem;
+  }
+
+  @include mobile {
+    animation: mobile-text-anim 5s 2s ease-in-out forwards;
+    font-size: 1.6rem;
+    transform: translateZ(-10rem) translateY(-6rem);
+  }
+}
+
+.logoText {
+  font-family: $font-logo;
+  color: $primary-yellow-1;
+  text-shadow: -0.3rem 0.3rem 0 $primary-pink-1;
+}
+
+@keyframes mobile-text-anim {
+  0% {
+    transform: translateZ(10rem);
+  }
+  25% {
+    opacity: 1;
+    transform: translateZ(-10rem) translateY(-5.5rem);
+  }
+  50% {
+    transform: translateZ(-10rem) translateY(-5rem);
+  }
+  75% {
+    transform: translateZ(-10rem) translateY(-6rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(-10rem) translateY(-6rem);
+  }
+}
+
+@keyframes text-anim {
+  0% {
+    transform: translateZ(10rem);
+  }
+  25% {
+    opacity: 1;
+    transform: translateZ(-10rem) translateY(0.5rem);
+  }
+  50% {
+    transform: translateZ(-10rem) translateY(1rem);
+  }
+  75% {
+    transform: translateZ(-10rem) translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(-10rem) translateY(-1rem);
+  }
+}
+
+.terminalGrid {
+  position: absolute;
+  width: 70%;
+  height: 40%;
+  transform: rotateX(70deg) translateY(0);
+
+  bottom: 5%;
+  background-image: linear-gradient($primary-pink-1 0.2rem, transparent 0.2rem),
+    linear-gradient(90deg, $primary-pink-1 0.2rem, transparent 0.2rem);
+  background-size: 2rem 2rem;
+  background-position: center;
+  animation: grid-anim 3s ease-in-out forwards;
+
+  @include tablet {
+    transform: rotateX(75deg) translateY(5rem);
+  }
+}
+
+@keyframes grid-anim {
+  from {
+    transform: rotateX(70deg) rotateZ(-180deg) translateY(-30rem);
+  }
+  to {
+    transform: rotateX(70deg) translateY(0);
+
+    @include tablet {
+      transform: rotateX(75deg) translateY(5rem);
+    }
+  }
+}

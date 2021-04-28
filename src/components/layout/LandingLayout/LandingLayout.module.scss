@@ -15,4 +15,8 @@
   @include tablet {
     height: 100%;
   }
+
+  @include mobile {
+    height: 100%;
+  }
 }

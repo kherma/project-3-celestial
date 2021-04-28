@@ -11,6 +11,11 @@
     margin: 0 0 0 5rem;
     padding: 0;
   }
+
+  @include mobile {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .pager {
@@ -33,6 +38,10 @@
     transparent 0.1rem
   );
   background-size: 1rem 1rem;
+
+  @include mobile {
+    height: 70%;
+  }
 }
 
 .controllers {
@@ -89,6 +98,11 @@
     animation: screen-slide 10s 2s linear infinite;
 
     @include tablet {
+      animation: tablet-screen-slide 10s 2s linear infinite;
+    }
+
+    @include mobile {
+      transform: skew(-20deg);
       animation: mobile-screen-slide 10s 2s linear infinite;
     }
   }
@@ -112,7 +126,7 @@
   }
 }
 
-@keyframes mobile-screen-slide {
+@keyframes tablet-screen-slide {
   0% {
     opacity: 1;
     transform: skew(-30deg);
@@ -124,6 +138,24 @@
   20% {
     opacity: 0;
     transform: skew(-30deg) translateX(600%);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes mobile-screen-slide {
+  0% {
+    opacity: 1;
+    transform: skew(-20deg);
+  }
+  15% {
+    opacity: 1;
+    transform: skew(-20deg) translateX(600%);
+  }
+  20% {
+    opacity: 0;
+    transform: skew(-20deg) translateX(600%);
   }
   100% {
     opacity: 0;

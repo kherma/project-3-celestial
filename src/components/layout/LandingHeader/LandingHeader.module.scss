@@ -32,6 +32,19 @@
     );
   }
 
+  @include mobile {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 90%,
+      75% 90%,
+      65% 100%,
+      35% 100%,
+      25% 90%,
+      0 90%
+    );
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -50,6 +63,19 @@
     );
 
     @include tablet {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 88%,
+        75% 88%,
+        65% 98%,
+        35% 98%,
+        25% 88%,
+        0 88%
+      );
+    }
+
+    @include mobile {
       clip-path: polygon(
         0 0,
         100% 0,
@@ -116,6 +142,11 @@
 
     @include tablet {
       background-size: 20% 100%, 20% 100%;
+    }
+
+    @include mobile {
+      background-size: 10% 100%, 10% 100%;
+      top: 37%;
     }
   }
 }
