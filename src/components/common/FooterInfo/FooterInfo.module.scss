@@ -1,10 +1,16 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
 .root {
   padding: 1rem;
   display: grid;
   place-items: center;
   margin: 0 5rem;
+
+  @include tablet {
+    margin: 0 0 0 5rem;
+    padding: 0;
+  }
 }
 
 .pager {
@@ -81,6 +87,10 @@
     background-color: rgba($light, 0.5);
     transform: skew(-30deg);
     animation: screen-slide 10s 2s linear infinite;
+
+    @include tablet {
+      animation: mobile-screen-slide 10s 2s linear infinite;
+    }
   }
 }
 
@@ -96,6 +106,24 @@
   20% {
     opacity: 0;
     transform: skew(-30deg) translateX(800%);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes mobile-screen-slide {
+  0% {
+    opacity: 1;
+    transform: skew(-30deg);
+  }
+  15% {
+    opacity: 1;
+    transform: skew(-30deg) translateX(600%);
+  }
+  20% {
+    opacity: 0;
+    transform: skew(-30deg) translateX(600%);
   }
   100% {
     opacity: 0;

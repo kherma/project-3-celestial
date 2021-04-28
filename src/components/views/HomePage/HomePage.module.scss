@@ -1,9 +1,14 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
 .root {
   display: grid;
   grid-template-columns: auto 1fr;
   padding: 0 5rem;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
 }
 
 .aside {
@@ -11,6 +16,14 @@
   flex-direction: column;
   justify-content: center;
   margin-left: 5rem;
+
+  @include tablet {
+    margin-top: 5rem;
+    margin-left: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 
 .article {
@@ -19,6 +32,10 @@
   justify-content: center;
   align-items: center;
   padding: 5rem 5rem 10rem 10rem;
+
+  @include tablet {
+    padding: 10rem 2rem;
+  }
 }
 
 .terminal {
@@ -40,6 +57,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include tablet {
+    height: 50rem;
+  }
 
   &::before,
   &::after {
@@ -83,6 +104,10 @@
   box-shadow: inset 1.5rem 0.5rem 0 0 $primary-blue-5,
     inset -1.5rem 0.5rem 0 0 $primary-blue-5;
 
+  @include tablet {
+    padding: 0 1rem;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -93,6 +118,11 @@
     background: rgba($primary-blue-3, 0.3);
     transform: skew(-30deg);
     animation: screen-slide 23s 10s linear infinite;
+
+    @include tablet {
+      animation: mobile-screen-slide 23s 10s linear infinite;
+      transform: skew(-20deg);
+    }
   }
 }
 
@@ -113,6 +143,25 @@
     opacity: 0;
   }
 }
+
+@keyframes mobile-screen-slide {
+  0% {
+    opacity: 1;
+    transform: skew(-20deg) translateX(-300%);
+  }
+  8% {
+    opacity: 1;
+    transform: skew(-20deg) translateX(200%);
+  }
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .terminalText {
   position: relative;
   text-align: center;
@@ -125,6 +174,10 @@
   -webkit-transform: translateZ(-10rem) translateY(-1rem);
   -moz-transform: translateZ(-10rem) translateY(-1rem);
   animation: text-anim 5s 2s ease-in-out forwards;
+
+  @include tablet {
+    font-size: 2rem;
+  }
 }
 
 .logoText {
@@ -176,6 +229,10 @@
   background-size: 2rem 2rem;
   background-position: center;
   animation: grid-anim 3s ease-in-out forwards;
+
+  @include tablet {
+    transform: rotateX(75deg) translateY(5rem);
+  }
 }
 
 @keyframes grid-anim {
@@ -188,5 +245,9 @@
     transform: rotateX(70deg) translateY(0);
     -webkit-transform: rotateX(70deg) translateY(0);
     -moz-transform: rotateX(70deg) translateY(0);
+
+    @include tablet {
+      transform: rotateX(75deg) translateY(5rem);
+    }
   }
 }

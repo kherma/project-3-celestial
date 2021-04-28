@@ -1,4 +1,5 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
 .root {
   height: 100vh;
@@ -10,4 +11,8 @@
     $primary-blue-5,
     $primary-blue-6
   );
+
+  @include tablet {
+    height: 100%;
+  }
 }
