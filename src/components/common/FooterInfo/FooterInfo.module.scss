@@ -170,15 +170,17 @@
 }
 
 .textSpecial {
-  color: $primary-yellow-1;
-  padding: 1rem;
-  background: -webkit-linear-gradient(
-    -45deg,
-    $primary-yellow-1,
-    $primary-red-1,
-    $primary-pink-1
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  width: 20rem;
+  padding: 0.5rem 1rem;
+  color: $primary-yellow-2;
+  background: linear-gradient(
+      90deg,
+      $primary-green-2 0.1rem,
+      transparent 0.1rem
+    ),
+    linear-gradient($primary-green-2 0.1rem, $primary-green-3 0.1rem);
+  background-size: 0.5rem 0.5rem;
+  background-position: center center;
+  box-shadow: 0 0 0.8rem 0.5rem rgba($primary-green-2, 0.2);
 }

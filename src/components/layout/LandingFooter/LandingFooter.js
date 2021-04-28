@@ -14,5 +14,3 @@ const LandingFooter = () => {
 };
 
 export default LandingFooter;
-
-//imaginary multiverse intergalactic multidimensional earthly
