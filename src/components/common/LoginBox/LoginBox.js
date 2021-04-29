@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './LoginBox.module.scss';
+import { Link } from 'react-router-dom';
 
 const LoginBox = () => {
   return (
@@ -9,7 +10,9 @@ const LoginBox = () => {
           are you <span className={styles.textSpecial}> ready </span>?
         </p>
       </div>
-      <button className={styles.buttonLogin}>journey begins</button>
+      <Link to="/dashboard" className={styles.buttonLogin}>
+        journey begins
+      </Link>
     </div>
   );
 };

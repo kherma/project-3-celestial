@@ -1,0 +1,26 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles//mixins.scss';
+
+.root {
+  background-color: $grey-dark-2;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+
+  @include tablet {
+    position: fixed;
+    width: 50%;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 10;
+  }
+
+  @include mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 10;
+  }
+}
