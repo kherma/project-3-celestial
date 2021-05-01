@@ -1,0 +1,96 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles//mixins.scss';
+
+.root {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.cartItems {
+  margin-right: 2rem;
+
+  & .cartList {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & .cartItem {
+    position: relative;
+    width: 8rem;
+    height: 5rem;
+    margin-left: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark;
+    border-radius: 0.5rem;
+
+    &:hover {
+      & .trash {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      & .priceTag {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  & .planet {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    background-color: $primary-pink-1;
+    border-radius: 50%;
+  }
+
+  & .trash {
+    position: absolute;
+    font-size: 1.5rem;
+    color: $light;
+    top: 0.2rem;
+    right: 0.2rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+
+  & .priceTag {
+    position: absolute;
+    left: 50%;
+    min-width: 100%;
+    transform: translate(-50%, 150%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+
+    & .currancyTag {
+      @include currancyStyles($dark, $light, 1rem, 1rem);
+      color: $light;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+.currancyContainer {
+  flex-basis: 15rem;
+  padding: 0 2rem;
+  height: 100%;
+  border-left: 2px solid $grey-light-2;
+}
+
+.currancy {
+  @include currancyStyles($light, $dark, 2rem, 2rem);
+  height: inherit;
+}
