@@ -1,11 +1,11 @@
 export const initialState = {
-  app: {
-    isLogged: false,
+  aside: {
     navigation: [
-      { text: 'explore', linkTo: '/explore', accessBy: 'user' },
-      { text: 'discover', linkTo: '/discover', accessBy: 'admin' },
-      { text: 'settings', linkTo: '/settings', accessBy: 'user' },
-      { text: 'cart', linkTo: '/cart', accessBy: 'user' },
+      { text: 'dashboard', linkTo: '/dashboard' },
+      { text: 'explore', linkTo: '/explore' },
+      { text: 'discover', linkTo: '/discover' },
+      { text: 'persona', linkTo: '/persona' },
     ],
+    show: false,
   },
 };

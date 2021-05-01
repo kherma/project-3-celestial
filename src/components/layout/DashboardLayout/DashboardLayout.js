@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './DashboardLayout.module.scss';
 import PropTypes from 'prop-types';
 
-import DashboardHeader from '../DashboardHeader/DashboardHeader';
-import DashboardAside from '../DashboardAside/DashboardAside';
+import DashboardHeader from '../DashboardHeader/DashboardHeaderContainer';
+import DashboardAside from '../DashboardAside/DashboardAsideContainer';
 
 const DashboardLayout = ({ children }) => {
   return (

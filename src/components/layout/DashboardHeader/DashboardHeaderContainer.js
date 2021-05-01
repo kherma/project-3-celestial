@@ -1,16 +1,9 @@
 import { connect } from 'react-redux';
 import DashboardHeader from './DashboardHeader';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
-
-const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
-});
+import { toggleMenu } from '../../../redux/asideRedux';
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  toggleAside: () => dispatch(toggleMenu()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardHeader);
+export default connect(null, mapDispatchToProps)(DashboardHeader);

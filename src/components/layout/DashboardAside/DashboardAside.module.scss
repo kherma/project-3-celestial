@@ -10,17 +10,69 @@
   display: grid;
   place-items: center;
   grid-template-rows: 1fr auto 1fr auto 1fr;
+  transition: all 0.5s;
+
+  @include tablet {
+    z-index: 100;
+    position: fixed;
+    width: 50%;
+  }
+
+  @include mobile {
+    z-index: 100;
+    position: fixed;
+    overflow: scroll;
+  }
+}
+
+.show {
+  @include tablet {
+    transform: translateX(0);
+  }
+
+  @include mobile {
+    transform: translateX(0);
+  }
+}
+.hide {
+  @include tablet {
+    transform: translateX(-100%);
+  }
+
+  @include mobile {
+    transform: translateX(-100%);
+  }
 }
 
 .logoSection {
-  padding: 2rem 4rem;
+  padding: 0 2rem;
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include mobile {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & .closeAside {
+    display: flex;
+    color: $light;
+    font-size: 4rem;
+    margin-right: 2rem;
+  }
 
   & .logo {
     text-transform: uppercase;
     font-family: $font-logo;
     font-size: 4rem;
     color: $light;
-    text-shadow: 0 0 1rem rgba($light, 0.5);
+    // text-shadow: 0 0 1rem rgba($light, 0.5);
   }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './DashboardHeader.module.scss';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import { FaShoppingCart } from 'react-icons/fa';
@@ -7,11 +8,11 @@ import { FaShoppingCart } from 'react-icons/fa';
 import TopbarMobile from '../../feature/TopbarMobile/TopbarMobile';
 import TopbarDesktop from '../../feature/TopbarDesktop/TopbarDesktop';
 
-const DashboardHeader = () => {
+const DashboardHeader = ({ toggleAside }) => {
   return (
     <header className={styles.root}>
       {window.matchMedia('(max-width: 1224px)').matches && (
-        <div className={styles.mobileMenu}>
+        <div className={styles.mobileMenu} onClick={toggleAside}>
           <span className={styles.hamburger}></span>
         </div>
       )}
@@ -33,8 +34,8 @@ const DashboardHeader = () => {
   );
 };
 
-// DashboardHeader.propTypes = {
-//   props: PropTypes.node,
-// };
+DashboardHeader.propTypes = {
+  toggleAside: PropTypes.func,
+};
 
 export default DashboardHeader;
