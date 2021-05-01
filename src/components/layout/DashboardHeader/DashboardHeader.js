@@ -1,18 +1,17 @@
 import React from 'react';
 import styles from './DashboardHeader.module.scss';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const DashboardHeader = ({ children }) => {
+const DashboardHeader = () => {
   return (
-    <div className={styles.root}>
+    <header className={styles.root}>
       <h2>Header</h2>
-      {children}
-    </div>
+    </header>
   );
 };
 
-DashboardHeader.propTypes = {
-  children: PropTypes.node,
-};
+// DashboardHeader.propTypes = {
+//   props: PropTypes.node,
+// };
 
 export default DashboardHeader;

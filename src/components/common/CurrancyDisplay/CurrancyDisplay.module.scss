@@ -1,0 +1,41 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.icon {
+  position: relative;
+  border-right-color: transparent;
+  border-style: solid;
+  background-color: transparent;
+  border-radius: 50%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 170%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, -50%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.currancy {
+  letter-spacing: 0.3rem;
+  margin-left: 2rem;
+}
