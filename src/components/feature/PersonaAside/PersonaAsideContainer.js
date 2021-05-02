@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import PersonaAside from './PersonaAside';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+import { getUserData, toggleMenu } from '../../../redux/asideRedux';
 
 const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
+  userData: getUserData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  toggleMenu: () => dispatch(toggleMenu()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonaAside);

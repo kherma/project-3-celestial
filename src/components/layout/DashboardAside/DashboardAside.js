@@ -6,9 +6,9 @@ import clsx from 'clsx';
 
 import { IoClose } from 'react-icons/io5';
 
-import PersonaAside from '../../feature/PersonaAside/PersonaAside';
+import PersonaAside from '../../feature/PersonaAside/PersonaAsideContainer';
 import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
-import DashboardNavigation from '../DashboardNavigation/DashboardNavigation';
+import DashboardNavigation from '../DashboardNavigation/DashboardNavigationContainer';
 
 const DashboardAside = ({ menuStatus, toggleAside }) => {
   return (

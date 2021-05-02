@@ -45,26 +45,28 @@
 }
 
 .logoSection {
-  padding: 0 2rem;
+  padding: 2rem 4rem;
 
   @include tablet {
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   @include mobile {
-    padding: 1rem 2rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 2rem;
   }
 
   & .closeAside {
     display: flex;
     color: $light;
     font-size: 4rem;
-    margin-right: 2rem;
+    margin-right: 3rem;
   }
 
   & .logo {
@@ -72,7 +74,13 @@
     font-family: $font-logo;
     font-size: 4rem;
     color: $light;
-    // text-shadow: 0 0 1rem rgba($light, 0.5);
+    text-shadow: 0 0 1rem rgba($light, 0.5);
+    @include mobile {
+      font-size: 4rem;
+    }
+    @include mobile-small {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -81,6 +89,10 @@
   padding: 1rem 0;
   border-top: 1px solid $grey-dark-3;
   border-bottom: 1px solid $grey-dark-3;
+
+  @include mobile {
+    margin: 4rem 0 4rem 0;
+  }
 }
 
 .logoutSection {
@@ -88,6 +100,10 @@
   height: 100%;
   display: grid;
   place-items: center;
+
+  @include mobile {
+    margin: 4rem 0 2rem 0;
+  }
 
   & .logoutBtn {
     @include asideBtn($primary-red-1, 90%);

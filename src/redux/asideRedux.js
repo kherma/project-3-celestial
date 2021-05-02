@@ -1,6 +1,10 @@
 /* selectors */
 export const getMenuLinks = ({ aside }) => aside.navigation;
 export const getMenuStatus = ({ aside }) => aside.show;
+export const getUserData = ({ user: { username, persona } }) => ({
+  username,
+  persona,
+});
 
 /* action name creator */
 const reducerName = 'aside';
