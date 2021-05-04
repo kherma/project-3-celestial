@@ -1,7 +1,111 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
 .root {
-  background-color: red;
-  display: grid;
-  place-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid $grey-light-2;
+}
+
+.chartContainer {
+  padding-left: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  & .currancyTag {
+    @include tablet {
+      @include currancyStyles(transparent, $dark, 2rem, 2rem);
+      margin-right: 3.5rem;
+    }
+
+    @include mobile {
+      @include currancyStyles(transparent, $dark, 2rem, 2rem);
+      margin-right: 3.5rem;
+    }
+
+    @include mobile-small {
+      @include currancyStyles(transparent, $dark, 2rem, 1.5rem);
+      margin-right: 3rem;
+    }
+  }
+
+  & .icon {
+    position: absolute;
+    right: 1rem;
+
+    @include tablet {
+      font-size: 2.2rem;
+      right: 2rem;
+    }
+
+    @include mobile {
+      font-size: 2rem;
+    }
+
+    @include mobile-small {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.chartItems {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: auto;
+  transform: translateY(100%);
+  z-index: 100;
+  background: $light;
+  border: 1px solid $grey-light-2;
+
+  & .chartItem {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
+    }
+
+    &:not(:last-child) {
+      margin: 0.5rem 0;
+    }
+  }
+
+  & .planetContainer {
+    height: 4rem;
+    width: 4rem;
+    background: $primary-pink-1;
+    border-radius: 50%;
+  }
+
+  & .currancyTagItem {
+    @include currancyStyles(transparent, $dark, 1.5rem, 1.5rem);
+  }
+
+  & .trashIconContainer {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  & .trashIcon {
+    font-size: 2rem;
+  }
 }
