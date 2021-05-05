@@ -15,10 +15,10 @@ const Discover = () => {
     const planet = new Planet();
     planet.generatePlanet();
     setPlanetData(planet);
-    // for (let i = 0; i < 1000; i++) {
+    // for (let i = 0; i < 10000; i++) {
     //   const planet = new Planet();
     //   planet.generatePlanet();
-    //   if (planet.data.temperature > 100) {
+    //   if (planet.data.population > 6900) {
     //     setPlanetData(planet);
     //     return;
     //   }
@@ -56,7 +56,11 @@ const Discover = () => {
         <PlanetAtmosphere {...planetData.data} />
       </ArticlePaper>
       <ArticlePaper className={styles.descriptionContainer}>
-        {planetData.data ? <p>{planetData.data.description}</p> : <h2>...</h2>}
+        {planetData.data ? (
+          <p>{planetData.data.description}</p>
+        ) : (
+          <h2 className={styles.filler}>...</h2>
+        )}
       </ArticlePaper>
     </section>
   );

@@ -1,0 +1,48 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  height: 50%;
+  width: 100%;
+
+  & .planetSize {
+    display: block;
+    border-radius: 50%;
+    background: $light;
+    transition: all 0.5s;
+  }
+
+  & .planetSmall {
+    width: 1rem;
+    height: 1rem;
+    &.active {
+      background: $primary-green-2;
+    }
+  }
+
+  & .planetMedium {
+    width: 2rem;
+    height: 2rem;
+    &.active {
+      background: $primary-yellow-1;
+    }
+  }
+
+  & .planetLarge {
+    width: 3rem;
+    height: 3rem;
+    &.active {
+      background: $primary-pink-1;
+    }
+  }
+
+  & .planetHuge {
+    width: 4rem;
+    height: 4rem;
+    &.active {
+      background: $primary-red-1;
+    }
+  }
+}

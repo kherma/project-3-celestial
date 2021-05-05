@@ -32,6 +32,7 @@
   }
 
   & .descriptionContainer {
+    position: relative;
     grid-column: 1/7;
     height: 13rem;
   }
@@ -82,5 +83,26 @@
   &:active {
     transform: translateY(0);
     box-shadow: 0 0.2rem 0.5rem rgba($dark, 0.6);
+  }
+}
+
+.filler {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 1s;
+  animation: showup 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

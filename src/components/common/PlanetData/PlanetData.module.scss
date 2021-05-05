@@ -1,4 +1,124 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles//mixins.scss';
 
-// .root {
-// }
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  & > * {
+    animation: showup 0.5s ease-in-out forwards;
+  }
+}
+
+.filler {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 1s;
+  animation: showup 0.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.title {
+  background: $dark;
+  color: $light;
+  width: 100%;
+  text-align: center;
+}
+
+.dataList {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-gap: 1rem;
+  text-transform: uppercase;
+
+  & .dataItem {
+    background: $grey-dark-1;
+    box-shadow: 0.1rem 0.1rem 0.3rem rgba($dark, 0.2);
+    border-radius: 0.5rem;
+    color: $light;
+  }
+
+  & .sizeComparison {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  & .distance {
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        circle at -50% 50%,
+        $primary-yellow-2 35%,
+        $primary-red-1 45%,
+        transparent 50%
+      ),
+      radial-gradient(circle at 85% 50%, $grey-light-3 4%, transparent 5%);
+    background-color: $grey-dark-1;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & .arrow {
+      font-size: 5rem;
+      color: $primary-red-1;
+      margin: -1rem 0;
+    }
+  }
+
+  & .temperature {
+    display: grid;
+    place-items: center;
+
+    &.hot {
+      background-color: $primary-red-1;
+    }
+    &.normal {
+      background-color: $primary-yellow-2;
+    }
+    &.cold {
+      background-color: $primary-blue-2;
+    }
+  }
+
+  & .population {
+    background-color: $grey-dark-2;
+    & .populationContainer {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.currancyContainer {
+  width: 100%;
+  text-align: center;
+  @include currancyStyles($grey-dark-1, $light, 3rem, 3rem);
+  color: $light;
+  padding: 1rem;
+}
