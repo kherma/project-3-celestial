@@ -86,7 +86,7 @@ class Planet {
 
     if (distance < 100) {
       this.data.atmosphere.push(
-        this.random(0, 1) === 1 ? atmosphereLayers[0] : atmosphereLayers[4]
+        this.random(2, 4) < 3 ? atmosphereLayers[0] : atmosphereLayers[4]
       );
     }
 
@@ -115,8 +115,11 @@ class Planet {
     if (distance > 200) {
       const randomLayers = this.random(1, 10);
       switch (true) {
-        case randomLayers < 7:
+        case randomLayers < 4:
           this.data.atmosphere.push(atmosphereLayers[0]);
+          break;
+        case randomLayers > 3 && randomLayers < 7:
+          this.data.atmosphere.push(atmosphereLayers[4]);
           break;
         case randomLayers > 6:
           this.data.atmosphere.push(

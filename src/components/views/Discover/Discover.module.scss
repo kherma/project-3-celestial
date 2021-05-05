@@ -9,14 +9,12 @@
 
   & .headerInfo {
     grid-column: 1/4;
-    grid-row: 1/2;
     height: 20rem;
     text-align: center;
   }
 
   & .headerForm {
     grid-column: 4/7;
-    grid-row: 1/2;
     height: 20rem;
     text-align: center;
   }
@@ -48,6 +46,22 @@
   justify-content: space-between;
 }
 
+.form {
+  height: 100%;
+  width: 100%;
+
+  & .input {
+    width: 100%;
+    height: 50%;
+    resize: none;
+    padding: 1rem;
+
+    &:focus {
+      outline-color: $dark;
+    }
+  }
+}
+
 .btn {
   padding: 1.5rem 5rem;
   font-size: 1.6rem;
@@ -68,21 +82,5 @@
   &:active {
     transform: translateY(0);
     box-shadow: 0 0.2rem 0.5rem rgba($dark, 0.6);
-  }
-}
-
-.form {
-  height: 100%;
-  width: 100%;
-
-  & .input {
-    width: 100%;
-    height: 50%;
-    resize: none;
-    padding: 1rem;
-
-    &:focus {
-      outline-color: $dark;
-    }
   }
 }

@@ -1,4 +1,70 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-evenly;
+
+  & > * {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: $light;
+    text-transform: uppercase;
+    transition: all 1s;
+    animation: showup 1s ease-in-out forwards;
+  }
+}
+
+.ozone {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  font-size: 1rem;
+  text-align: center;
+  color: $dark;
+  background: $primary-blue-1;
+  transition: all 1s;
+  animation: showup 1s ease-in-out forwards;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.troposphereCold {
+  background-color: $atmosphere-1;
+}
+
+.stratosphereCold {
+  background-color: $atmosphere-2;
+  position: relative;
+}
+
+.mesosphereCold {
+  background-color: $atmosphere-3;
+}
+
+.thermosphereCold {
+  background-color: $atmosphere-4;
+}
+
+.exosphereCold {
+  background-color: $atmosphere-5;
+}
