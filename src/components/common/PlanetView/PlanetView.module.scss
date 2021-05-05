@@ -1,4 +1,38 @@
 @import '../../../styles/settings.scss';
 
 .root {
+  position: relative;
+}
+
+.planet {
+  border-radius: 50%;
+  transition: all 0.5s;
+  width: 30rem;
+  height: 30rem;
+}
+
+.rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: transparent;
+  border-radius: 50%;
+  width: 45rem;
+  height: 9rem;
+
+  transition: all 0.5s;
+  animation: showup 0.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

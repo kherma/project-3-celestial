@@ -37,8 +37,8 @@ const PlanetData = ({
                 styles.dataItem,
                 styles.temperature,
                 temperature > 60 && styles.hot,
-                temperature > 0 && temperature <= 60 && styles.normal,
-                temperature <= 0 && styles.cold
+                temperature >= 0 && temperature <= 60 && styles.normal,
+                temperature < 0 && styles.cold
               )}
             >
               <h4>

@@ -15,10 +15,10 @@ const Discover = () => {
     const planet = new Planet();
     planet.generatePlanet();
     setPlanetData(planet);
-    // for (let i = 0; i < 10000; i++) {
+    // for (let i = 0; i < 100; i++) {
     //   const planet = new Planet();
     //   planet.generatePlanet();
-    //   if (planet.data.population > 6900) {
+    //   if (planet.data.atmosphere.length > 3) {
     //     setPlanetData(planet);
     //     return;
     //   }
