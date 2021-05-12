@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './HomePage.module.scss';
 
-import LoginBox from '../../common/LoginBox/LoginBox';
-import MainInfoBox from '../../common/MainInfoBox/MainInfoBox';
-import Terminal from '../../common/Terminal/Terminal';
+import LoginBox from '../../feature/LoginBox/LoginBox';
+import MainInfoBox from '../../feature/MainInfoBox/MainInfoBox';
+import Terminal from '../../feature/Terminal/Terminal';
 
 const HomePage = () => {
   return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './LandingFooter.module.scss';
 
-import FooterInfo from '../../common/FooterInfo/FooterInfo';
-import WalkMan from '../../common/WalkMan/WalkMan';
+import FooterInfo from '../../feature/FooterInfo/FooterInfo';
+import WalkMan from '../../feature/WalkMan/WalkMan';
 
 const LandingFooter = () => {
   return (
