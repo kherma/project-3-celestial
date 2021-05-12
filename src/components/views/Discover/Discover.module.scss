@@ -18,6 +18,8 @@
     grid-template: repeat(6, auto) / 1fr;
     padding: 1rem;
     grid-gap: 1rem;
+    height: auto;
+    min-height: 100%;
   }
 
   & .headerInfo {

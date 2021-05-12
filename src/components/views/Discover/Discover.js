@@ -12,17 +12,9 @@ const Discover = () => {
   const [planetData, setPlanetData] = useState({});
 
   const generateNew = () => {
-    // const planet = new Planet();
-    // planet.generatePlanet();
-    // setPlanetData(planet);
-    for (let i = 0; i < 100; i++) {
-      const planet = new Planet();
-      planet.generatePlanet();
-      if (planet.data.ozoneLayer) {
-        setPlanetData(planet);
-        return;
-      }
-    }
+    const planet = new Planet();
+    planet.generatePlanet();
+    setPlanetData(planet);
   };
 
   return (
