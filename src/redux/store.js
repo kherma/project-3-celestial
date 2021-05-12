@@ -4,10 +4,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { initialState } from './initialState';
 import asideReducer from './asideRedux';
+import planetsReducer from './planetsRedux';
 
 // define reducers
 const reducers = {
   aside: asideReducer,
+  planets: planetsReducer,
 };
 
 // add blank reducers for initial state properties without reducers
