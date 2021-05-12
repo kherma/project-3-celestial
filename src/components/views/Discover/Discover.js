@@ -12,17 +12,17 @@ const Discover = () => {
   const [planetData, setPlanetData] = useState({});
 
   const generateNew = () => {
-    const planet = new Planet();
-    planet.generatePlanet();
-    setPlanetData(planet);
-    // for (let i = 0; i < 1000; i++) {
-    //   const planet = new Planet();
-    //   planet.generatePlanet();
-    //   if (planet.data.size === 'huge') {
-    //     setPlanetData(planet);
-    //     return;
-    //   }
-    // }
+    // const planet = new Planet();
+    // planet.generatePlanet();
+    // setPlanetData(planet);
+    for (let i = 0; i < 100; i++) {
+      const planet = new Planet();
+      planet.generatePlanet();
+      if (planet.data.ozoneLayer) {
+        setPlanetData(planet);
+        return;
+      }
+    }
   };
 
   return (
@@ -48,7 +48,7 @@ const Discover = () => {
       </ArticlePaper>
       <ArticlePaper className={styles.planetContainer}>
         {planetData.data ? (
-          <PlanetView {...planetData.styles} />
+          <PlanetView {...planetData.styles} className={styles.responsive} />
         ) : (
           <h2 className={styles.filler}>...</h2>
         )}

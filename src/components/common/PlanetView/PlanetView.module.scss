@@ -3,10 +3,6 @@
 
 .root {
   position: relative;
-
-  @include tablet {
-    transform: scale(0.7);
-  }
 }
 
 .planet {

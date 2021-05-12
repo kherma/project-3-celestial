@@ -22,6 +22,10 @@
   @include tablet {
     font-size: 2rem;
   }
+
+  @include mobile {
+    font-size: 3rem;
+  }
 }
 
 .dataList {
@@ -54,6 +58,12 @@
     @include tablet {
       & .text {
         font-size: 1.2rem;
+      }
+    }
+
+    @include mobile {
+      & .text {
+        font-size: 1.4rem;
       }
     }
   }
@@ -101,6 +111,12 @@
         font-size: 3rem;
       }
     }
+
+    @include mobile {
+      & .text {
+        font-size: 2.5rem;
+      }
+    }
   }
 
   & .population {
@@ -111,6 +127,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @include tablet {
+        font-size: 2.5rem;
+      }
+
+      @include mobile {
+        font-size: 2.5rem;
+      }
     }
   }
 }
@@ -124,6 +148,11 @@
 
   @include tablet {
     @include currancyStyles($grey-dark-1, $light, 2rem, 2rem);
+    padding: 0.5rem;
+  }
+
+  @include mobile {
+    @include currancyStyles($grey-dark-1, $light, 2.5rem, 2.5rem);
     padding: 0.5rem;
   }
 }

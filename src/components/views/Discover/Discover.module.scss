@@ -14,6 +14,12 @@
     grid-gap: 3rem;
   }
 
+  @include mobile {
+    grid-template: repeat(6, auto) / 1fr;
+    padding: 1rem;
+    grid-gap: 1rem;
+  }
+
   & .headerInfo {
     grid-column: 1/4;
     height: 20rem;
@@ -27,6 +33,12 @@
         font-size: 1.4rem;
       }
     }
+
+    @include mobile {
+      text-align: justify;
+      grid-column: 1/2;
+      height: 27rem;
+    }
   }
 
   & .headerForm {
@@ -36,6 +48,10 @@
 
     @include tablet {
       height: auto;
+    }
+
+    @include mobile {
+      grid-column: 1/2;
     }
   }
 
@@ -48,9 +64,27 @@
       animation: showup 1s ease-in-out forwards;
     }
 
+    .responsive {
+      @include tablet {
+        transform: scale(0.7);
+      }
+
+      @include mobile {
+        transform: scale(0.5);
+      }
+    }
+
     @include tablet {
       grid-column: 1/4;
       height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include mobile {
+      grid-column: 1/2;
+      height: 20rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -68,6 +102,11 @@
       grid-column: 4/7;
       height: auto;
     }
+
+    @include mobile {
+      grid-column: 1/2;
+      height: 40rem;
+    }
   }
 
   & .atmosphereContainer {
@@ -79,6 +118,11 @@
 
     @include tablet {
       grid-column: 1/4;
+    }
+
+    @include mobile {
+      grid-column: 1/2;
+      height: 30rem;
     }
   }
 
@@ -94,6 +138,16 @@
       grid-column: 4/7;
       height: auto;
       padding: 2rem;
+
+      & .text {
+        font-size: 1.4rem;
+      }
+    }
+
+    @include mobile {
+      grid-column: 1/2;
+      height: 25rem;
+
       & .text {
         font-size: 1.4rem;
       }

@@ -1,4 +1,5 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles//mixins.scss';
 
 .root {
   height: 100%;
@@ -30,6 +31,10 @@
   background: $primary-blue-1;
   transition: all 1s;
   animation: showup 1s ease-in-out forwards;
+
+  @include mobile {
+    font-size: 0.8rem;
+  }
 }
 
 .hide {
