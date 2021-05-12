@@ -15,14 +15,6 @@ const Discover = () => {
     const planet = new Planet();
     planet.generatePlanet();
     setPlanetData(planet);
-    // for (let i = 0; i < 100; i++) {
-    //   const planet = new Planet();
-    //   planet.generatePlanet();
-    //   if (planet.data.atmosphere.length > 3) {
-    //     setPlanetData(planet);
-    //     return;
-    //   }
-    // }
   };
 
   return (
@@ -47,13 +39,25 @@ const Discover = () => {
         </form>
       </ArticlePaper>
       <ArticlePaper className={styles.planetContainer}>
-        <PlanetView {...planetData.styles} />
+        {planetData.data ? (
+          <PlanetView {...planetData.styles} />
+        ) : (
+          <h2 className={styles.filler}>...</h2>
+        )}
       </ArticlePaper>
       <ArticlePaper className={styles.dataContainer}>
-        <PlanetData {...planetData.data} />
+        {planetData.data ? (
+          <PlanetData {...planetData.data} />
+        ) : (
+          <h2 className={styles.filler}>...</h2>
+        )}
       </ArticlePaper>
       <ArticlePaper className={styles.atmosphereContainer}>
-        <PlanetAtmosphere {...planetData.data} />
+        {planetData.data ? (
+          <PlanetAtmosphere {...planetData.data} />
+        ) : (
+          <h2 className={styles.filler}>...</h2>
+        )}
       </ArticlePaper>
       <ArticlePaper className={styles.descriptionContainer}>
         {planetData.data ? (

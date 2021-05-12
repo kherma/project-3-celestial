@@ -23,20 +23,32 @@
     grid-column: 1/3;
     display: grid;
     place-items: center;
+    position: relative;
+    & > * {
+      animation: showup 1s ease-in-out forwards;
+    }
   }
 
   & .dataContainer {
     grid-column: 3/5;
+    position: relative;
+    & > * {
+      animation: showup 1s ease-in-out forwards;
+    }
   }
 
   & .atmosphereContainer {
     grid-column: 5/7;
+    position: relative;
+    & > * {
+      animation: showup 1s ease-in-out forwards;
+    }
   }
 
   & .descriptionContainer {
-    position: relative;
     grid-column: 1/7;
     height: 13rem;
+    position: relative;
     & > * {
       animation: showup 1s ease-in-out forwards;
     }
@@ -94,9 +106,11 @@
 .filler {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   transition: all 1s;
   opacity: 0;
+  color: $dark;
 }
 
 @keyframes showup {

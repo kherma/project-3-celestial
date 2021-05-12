@@ -19,47 +19,41 @@ const PlanetData = ({
 }) => {
   return (
     <div className={styles.root}>
-      {name && size && distanceFromSun && price ? (
-        <>
-          <h4 className={styles.title}>{name}</h4>
-          <ul className={styles.dataList}>
-            <li className={clsx(styles.dataItem, styles.sizeComparison)}>
-              <SizeComparison size={size} />
-              <p>{size}</p>
-            </li>
-            <li className={clsx(styles.dataItem, styles.distance)}>
-              <p>{distanceFromSun} M</p>
-              <CgArrowsHAlt className={styles.arrow} />
-              <p>miles</p>
-            </li>
-            <li
-              className={clsx(
-                styles.dataItem,
-                styles.temperature,
-                temperature > 60 && styles.hot,
-                temperature >= 0 && temperature <= 60 && styles.normal,
-                temperature < 0 && styles.cold
-              )}
-            >
-              <h4>
-                {temperature} <>&#x000B0;C</>
-              </h4>
-            </li>
-            <li className={clsx(styles.dataItem, styles.population)}>
-              <h5 className={styles.populationContainer}>
-                <IoMan />
-                {population ? `${population} M` : 0}
-              </h5>
-            </li>
-          </ul>
-          <CurrancyDisplay
-            amount={price}
-            containerClass={styles.currancyContainer}
-          />
-        </>
-      ) : (
-        <h2 className={styles.filler}>...</h2>
-      )}
+      <h4 className={styles.title}>{name}</h4>
+      <ul className={styles.dataList}>
+        <li className={clsx(styles.dataItem, styles.sizeComparison)}>
+          <SizeComparison size={size} />
+          <p>{size}</p>
+        </li>
+        <li className={clsx(styles.dataItem, styles.distance)}>
+          <p>{distanceFromSun} M</p>
+          <CgArrowsHAlt className={styles.arrow} />
+          <p>miles</p>
+        </li>
+        <li
+          className={clsx(
+            styles.dataItem,
+            styles.temperature,
+            temperature > 60 && styles.hot,
+            temperature >= 0 && temperature <= 60 && styles.normal,
+            temperature < 0 && styles.cold
+          )}
+        >
+          <h4>
+            {temperature} <>&#x000B0;C</>
+          </h4>
+        </li>
+        <li className={clsx(styles.dataItem, styles.population)}>
+          <h5 className={styles.populationContainer}>
+            <IoMan />
+            {population ? `${population} M` : 0}
+          </h5>
+        </li>
+      </ul>
+      <CurrancyDisplay
+        amount={price}
+        containerClass={styles.currancyContainer}
+      />
     </div>
   );
 };

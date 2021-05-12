@@ -6,7 +6,6 @@ import clsx from 'clsx';
 const PlanetAtmosphere = ({ atmosphere, ozoneLayer }) => {
   return (
     <div className={styles.root}>
-      {!atmosphere.length && <h2 style={{ color: 'black' }}>...</h2>}
       {atmosphere.map((item, index) => (
         <p
           className={clsx(
