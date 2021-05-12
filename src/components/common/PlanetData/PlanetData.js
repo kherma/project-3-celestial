@@ -23,7 +23,7 @@ const PlanetData = ({
       <ul className={styles.dataList}>
         <li className={clsx(styles.dataItem, styles.sizeComparison)}>
           <SizeComparison size={size} />
-          <p>{size}</p>
+          <p className={styles.text}>{size}</p>
         </li>
         <li className={clsx(styles.dataItem, styles.distance)}>
           <p>{distanceFromSun} M</p>
@@ -39,7 +39,7 @@ const PlanetData = ({
             temperature < 0 && styles.cold
           )}
         >
-          <h4>
+          <h4 className={styles.text}>
             {temperature} <>&#x000B0;C</>
           </h4>
         </li>

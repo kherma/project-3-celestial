@@ -18,6 +18,10 @@
   color: $light;
   width: 100%;
   text-align: center;
+
+  @include tablet {
+    font-size: 2rem;
+  }
 }
 
 .dataList {
@@ -28,6 +32,11 @@
   grid-template: 1fr 1fr / 1fr 1fr;
   grid-gap: 1rem;
   text-transform: uppercase;
+
+  @include tablet {
+    padding: 0.5rem;
+    grid-gap: 0.5rem;
+  }
 
   & .dataItem {
     background: $grey-dark-1;
@@ -41,6 +50,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+
+    @include tablet {
+      & .text {
+        font-size: 1.2rem;
+      }
+    }
   }
 
   & .distance {
@@ -80,6 +95,12 @@
     &.cold {
       background-color: $primary-blue-2;
     }
+
+    @include tablet {
+      & .text {
+        font-size: 3rem;
+      }
+    }
   }
 
   & .population {
@@ -100,4 +121,9 @@
   @include currancyStyles($grey-dark-1, $light, 3rem, 3rem);
   color: $light;
   padding: 1rem;
+
+  @include tablet {
+    @include currancyStyles($grey-dark-1, $light, 2rem, 2rem);
+    padding: 0.5rem;
+  }
 }

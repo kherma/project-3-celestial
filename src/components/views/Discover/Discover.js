@@ -15,6 +15,14 @@ const Discover = () => {
     const planet = new Planet();
     planet.generatePlanet();
     setPlanetData(planet);
+    // for (let i = 0; i < 1000; i++) {
+    //   const planet = new Planet();
+    //   planet.generatePlanet();
+    //   if (planet.data.size === 'huge') {
+    //     setPlanetData(planet);
+    //     return;
+    //   }
+    // }
   };
 
   return (
@@ -61,7 +69,7 @@ const Discover = () => {
       </ArticlePaper>
       <ArticlePaper className={styles.descriptionContainer}>
         {planetData.data ? (
-          <p>{planetData.data.description}</p>
+          <p className={styles.text}>{planetData.data.description}</p>
         ) : (
           <h2 className={styles.filler}>...</h2>
         )}

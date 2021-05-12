@@ -1,7 +1,12 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles//mixins.scss';
 
 .root {
   position: relative;
+
+  @include tablet {
+    transform: scale(0.7);
+  }
 }
 
 .planet {
