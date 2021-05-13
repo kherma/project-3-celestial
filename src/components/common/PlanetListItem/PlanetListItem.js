@@ -1,18 +1,46 @@
 import React from 'react';
 import styles from './PlanetListItem.module.scss';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
-const PlanetListItem = ({children }) => {
+import { Link } from 'react-router-dom';
+
+import PlanetView from '../PlanetView/PlanetView';
+import CurrancyDisplay from '../CurrancyDisplay/CurrancyDisplay';
+
+const PlanetListItem = ({ data }) => {
   return (
     <div className={styles.root}>
-      <h2>PlanetListItem</h2>
-      {children}
+      <h3 className={styles.name}>{data.data.name}</h3>
+      <Link to={`/planet/${data.id}`} className={styles.planetContainer}>
+        <PlanetView
+          {...data.styles}
+          className={clsx(
+            styles.planet,
+            data.data.size === 'small' && styles.smallT,
+            data.data.size === 'medium' && styles.mediumT,
+            data.data.size === 'large' && styles.largeT,
+            data.data.size === 'huge' && styles.hugeT
+          )}
+        />
+      </Link>
+      <div className={styles.container}>
+        <CurrancyDisplay
+          containerClass={styles.currancy}
+          amount={data.data.price}
+        />
+        <div className={styles.cartContainer}></div>
+      </div>
     </div>
   );
 };
 
 PlanetListItem.propTypes = {
-  children: PropTypes.node,
+  data: PropTypes.object,
 };
 
-export default PlanetListItem ;
+PlanetListItem.defaultProps = {
+  data: { data: {} },
+};
+
+export default PlanetListItem;

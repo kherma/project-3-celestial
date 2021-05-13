@@ -18,10 +18,7 @@ const PaginationContainer = ({
   }, [setValue, currentPage]);
 
   const goToTop = () => {
-    container.current.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    container.current.scrollTo(0, 0);
   };
 
   return (
@@ -52,7 +49,7 @@ const PaginationContainer = ({
               valueAsNumber: true,
               required: true,
               min: 1,
-              max: 14,
+              max: { totalPages },
             })}
           />
         </form>

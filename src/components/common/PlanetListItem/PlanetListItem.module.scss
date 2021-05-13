@@ -1,4 +1,103 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles//mixins.scss';
 
-// .root {
-// }
+.root {
+  & > * {
+    animation: showup 0.3s ease-in-out forwards;
+    transition: all 0.3s;
+  }
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.name {
+  background-color: $dark;
+  color: $light;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.planetContainer {
+  &:link,
+  &:visited {
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: 1rem;
+    border-radius: 1rem;
+  }
+
+  &:hover,
+  &:focus-within {
+    background-color: $dark;
+    background-image: radial-gradient(
+        circle at center,
+        $light 10%,
+        transparent 20%
+      ),
+      radial-gradient(circle at center, $primary-yellow-1 10%, transparent 50%),
+      radial-gradient(circle at center, $light 20%, transparent 50%),
+      radial-gradient(circle at center, $light 10%, transparent 40%),
+      radial-gradient(circle at center, $primary-yellow-2 20%, transparent 30%),
+      radial-gradient(circle at center, $light 10%, transparent 50%),
+      radial-gradient(circle at center, $primary-yellow-3 30%, transparent 60%),
+      radial-gradient(circle at center, $primary-red-1 10%, transparent 30%),
+      radial-gradient(circle at center, $light 20%, transparent 40%),
+      radial-gradient(circle at center, $primary-yellow-4 50%, transparent 50%);
+    background-size: 1rem 1rem;
+    background-position: 79% 30%, 91% 33%, 96% 24%, 78% 18%, 70% 11%, 63% 3%,
+      50% 5%, 10% 90%, 4% 63%, 47% 95%;
+    background-repeat: no-repeat;
+    & .planet {
+      &.smallT {
+        transform: scale(1.5);
+      }
+      &.mediumT {
+        transform: scale(0.9);
+      }
+      &.largeT {
+        transform: scale(0.8);
+      }
+      &.hugeT {
+        transform: scale(0.7);
+      }
+    }
+  }
+
+  & .planet {
+    transition: all 0.3s;
+    transform: scale(0.6);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  transition: all 0.3s;
+
+  & .currancy {
+    @include currancyStyles($dark, $light, 3rem, 3rem);
+    color: $light;
+    padding: 0.5rem 0;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  & .cartContainer {
+    border: 1px solid $dark;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+}

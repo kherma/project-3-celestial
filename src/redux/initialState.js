@@ -6,8 +6,12 @@ import Planet from '../utils/seed';
 const planetData = [...Array(345)].map((item) => {
   const planetData = new Planet();
   planetData.generatePlanet();
-  const { data, styles } = planetData;
-  return { data, styles, id: uuidv4() };
+  const {
+    data,
+    settings: { numberSize },
+    styles,
+  } = planetData;
+  return { data, numberSize, styles, id: uuidv4() };
 });
 // =================================================
 
@@ -23,7 +27,7 @@ export const initialState = {
   },
   planets: {
     currentPage: 1,
-    resultsPerPage: 25,
+    resultsPerPage: 24,
     data: planetData,
     loading: {
       active: true,

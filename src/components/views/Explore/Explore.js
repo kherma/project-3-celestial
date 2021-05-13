@@ -3,7 +3,6 @@ import styles from './Explore.module.scss';
 import PropTypes from 'prop-types';
 
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
-
 import Pagination from '../../common/PaginationContainer/PaginationContainerContainer';
 import PlanetItem from '../../common/PlanetListItem/PlanetListItem';
 
@@ -17,11 +16,16 @@ const Explore = ({ results }) => {
           <div className={styles.pagination}>
             <Pagination container={scrollable} />
           </div>
-          <div className={styles.resultsContainer}>
-            {results.map((data) => (
-              <PlanetItem key={data.id} data={data} />
-            ))}
-          </div>
+        </ArticlePaper>
+
+        <div className={styles.resultsContainer}>
+          {results.map((data) => (
+            <ArticlePaper key={data.id}>
+              <PlanetItem data={data} />
+            </ArticlePaper>
+          ))}
+        </div>
+        <ArticlePaper>
           <div className={styles.pagination}>
             <Pagination container={scrollable} />
           </div>

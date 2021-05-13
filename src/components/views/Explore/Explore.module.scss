@@ -17,18 +17,11 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
-  &:first-of-type {
-    padding-bottom: 2rem;
-    border-bottom: 1px solid $grey;
-  }
-
-  &:last-of-type {
-    padding-top: 2rem;
-    border-top: 1px solid $grey;
-  }
 }
 
 .resultsContainer {
   padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
 }
