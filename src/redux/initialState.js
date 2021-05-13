@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 // *MOVE DATA TO DB
 import Planet from '../utils/seed';
 
-const planetData = [...Array(162)].map((item) => {
+const planetData = [...Array(345)].map((item) => {
   const planetData = new Planet();
   planetData.generatePlanet();
   const { data, styles } = planetData;

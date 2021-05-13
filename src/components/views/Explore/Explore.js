@@ -2,17 +2,27 @@ import React from 'react';
 import styles from './Explore.module.scss';
 import PropTypes from 'prop-types';
 
-const Explore = ({children }) => {
+import Pagination from '../../common/PaginationContainer/PaginationContainerContainer';
+
+const Explore = ({ results }) => {
   return (
     <div className={styles.root}>
-      <h2>Explore</h2>
-      {children}
+      <Pagination />
+      <div>
+        {results.map(({ id }) => (
+          <p key={id}>{id}</p>
+        ))}
+      </div>
     </div>
   );
 };
 
 Explore.propTypes = {
-  children: PropTypes.node,
+  results: PropTypes.array,
 };
 
-export default Explore ;
+Explore.defaultProps = {
+  results: [],
+};
+
+export default Explore;

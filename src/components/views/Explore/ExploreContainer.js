@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import Explore from './Explore';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+import { getPaginatedResults } from '../../../redux/planetsRedux';
 
 const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
+  results: getPaginatedResults(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   action: (arg) => dispatch(sampleActionCreator(arg)),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Explore);
+export default connect(mapStateToProps)(Explore);

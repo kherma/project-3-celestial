@@ -19,7 +19,9 @@ const Dashboard = lazy(() =>
   import(/* webpackPrefetch: true */ './components/views/Dashboard/Dashboard')
 );
 const Explore = lazy(() =>
-  import(/* webpackPrefetch: true */ './components/views/Explore/Explore')
+  import(
+    /* webpackPrefetch: true */ './components/views/Explore/ExploreContainer'
+  )
 );
 const Discover = lazy(() =>
   import(/* webpackPrefetch: true */ './components/views/Discover/Discover')

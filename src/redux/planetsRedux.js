@@ -5,7 +5,7 @@ export const getPaginatedResults = ({
   data.slice((currentPage - 1) * resultsPerPage, currentPage * resultsPerPage);
 
 export const getNumberOfPages = ({ planets: { data, resultsPerPage } }) =>
-  Math.ceil(data / resultsPerPage);
+  Math.ceil(data.length / resultsPerPage);
 
 export const getCurrentPage = ({ planets: { currentPage } }) => currentPage;
 
@@ -26,13 +26,20 @@ export const changeCurrentPage = (payload) => ({
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case CHANGE_CURRENT_PAGE: {
+      let page = action.payload;
+      const max = Math.ceil(statePart.data.length / statePart.resultsPerPage);
+
+      if (page > max) page = max;
+      if (page < 1) page = 1;
+      if (!page) page = statePart.currentPage;
+
       return {
         ...statePart,
         loading: {
           active: true,
           error: false,
         },
-        currentPage: action.payload,
+        currentPage: page,
       };
     }
     default:
