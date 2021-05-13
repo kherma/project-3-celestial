@@ -1,4 +1,36 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
-// .root {
-// }
+.btn {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 3rem;
+  transition: all 0.3s;
+
+  @include tablet {
+    font-size: 2rem;
+  }
+
+  @include mobile {
+    font-size: 2rem;
+  }
+}
+
+.btnAdd {
+  background-color: $light;
+  .icon {
+    color: $dark;
+  }
+}
+
+.btnRemove {
+  background-color: $dark;
+  .icon {
+    color: $light;
+  }
+}

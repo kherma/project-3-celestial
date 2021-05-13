@@ -7,7 +7,6 @@ import { MdShoppingCart, MdRemoveShoppingCart } from 'react-icons/md';
 
 const AddToCart = ({ cart, add, remove, id }) => {
   if (!cart.includes(id)) {
-    console.log(!cart.includes(id));
     return (
       <button
         className={clsx(styles.btn, styles.btnAdd)}
@@ -19,7 +18,6 @@ const AddToCart = ({ cart, add, remove, id }) => {
   }
 
   if (cart.includes(id)) {
-    console.log(!cart.includes(id));
     return (
       <button
         className={clsx(styles.btn, styles.btnRemove)}
