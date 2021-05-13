@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 import PlanetView from '../PlanetView/PlanetView';
 import CurrancyDisplay from '../CurrancyDisplay/CurrancyDisplay';
+import AddToCart from '../AddToCart/AddToCartContainer';
 
 const PlanetListItem = ({ data }) => {
   return (
@@ -29,7 +30,9 @@ const PlanetListItem = ({ data }) => {
           containerClass={styles.currancy}
           amount={data.data.price}
         />
-        <div className={styles.cartContainer}></div>
+        <div className={styles.cartContainer}>
+          <AddToCart id={data.id} />
+        </div>
       </div>
     </div>
   );

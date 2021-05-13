@@ -5,11 +5,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { initialState } from './initialState';
 import asideReducer from './asideRedux';
 import planetsReducer from './planetsRedux';
+import cartReducer from './cartRedux';
 
 // define reducers
 const reducers = {
   aside: asideReducer,
   planets: planetsReducer,
+  cart: cartReducer,
 };
 
 // add blank reducers for initial state properties without reducers

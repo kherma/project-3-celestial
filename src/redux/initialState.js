@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 // *MOVE DATA TO DB
 import Planet from '../utils/seed';
 
-const planetData = [...Array(345)].map((item) => {
+const planetData = [...Array(345)].map((_) => {
   const planetData = new Planet();
   planetData.generatePlanet();
   const {
@@ -33,6 +33,10 @@ export const initialState = {
       active: true,
       error: false,
     },
+  },
+  cart: {
+    data: [],
+    extras: [],
   },
   user: {
     username: '',
