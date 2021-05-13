@@ -5,12 +5,24 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
-const PaginationContainer = ({ totalPages, currentPage, changePage }) => {
+const PaginationContainer = ({
+  totalPages,
+  currentPage,
+  changePage,
+  container,
+}) => {
   const { register, handleSubmit, setValue } = useForm();
 
   useEffect(() => {
     setValue('page', currentPage);
   }, [setValue, currentPage]);
+
+  const goToTop = () => {
+    container.current.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <div className={styles.root}>
@@ -18,7 +30,10 @@ const PaginationContainer = ({ totalPages, currentPage, changePage }) => {
         {currentPage > 1 && (
           <button
             className={styles.btnChangePage}
-            onClick={() => changePage(currentPage - 1)}
+            onClick={() => {
+              changePage(currentPage - 1);
+              container && goToTop();
+            }}
           >
             <BsChevronLeft className={styles.icon} />
           </button>
@@ -47,7 +62,10 @@ const PaginationContainer = ({ totalPages, currentPage, changePage }) => {
         {currentPage < totalPages && (
           <button
             className={styles.btnChangePage}
-            onClick={() => changePage(currentPage + 1)}
+            onClick={() => {
+              changePage(currentPage + 1);
+              container && goToTop();
+            }}
           >
             <BsChevronRight className={styles.icon} />
           </button>
@@ -61,6 +79,7 @@ PaginationContainer.propTypes = {
   totalPages: PropTypes.number,
   currentPage: PropTypes.number,
   changePage: PropTypes.func,
+  container: PropTypes.object,
 };
 
 export default PaginationContainer;
