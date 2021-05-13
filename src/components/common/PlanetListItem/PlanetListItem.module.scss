@@ -31,6 +31,10 @@
   @include tablet {
     font-size: 3rem;
   }
+
+  @include mobile {
+    font-size: 3rem;
+  }
 }
 
 .planetContainer {
@@ -42,6 +46,12 @@
     margin: 1rem;
     border-radius: 1rem;
     background-position: center center;
+
+    @include mobile-small {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &:hover,
@@ -100,6 +110,10 @@
     border-bottom-left-radius: 1rem;
 
     @include tablet {
+      @include currancyStyles($dark, $light, 2rem, 2rem);
+    }
+
+    @include mobile {
       @include currancyStyles($dark, $light, 2rem, 2rem);
     }
   }

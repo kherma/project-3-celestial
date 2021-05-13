@@ -16,6 +16,10 @@
   @include tablet {
     padding: 3rem;
   }
+
+  @include mobile {
+    padding: 1rem;
+  }
 }
 
 .pagination {
@@ -32,6 +36,11 @@
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
+    padding: 1rem 0;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
     padding: 1rem 0;
   }
 }
