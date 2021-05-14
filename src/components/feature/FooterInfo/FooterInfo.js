@@ -3,13 +3,13 @@ import styles from './FooterInfo.module.scss';
 
 const FooterInfo = () => {
   const [current, setCurrent] = useState(0);
-  const [data, setData] = useState([
+  const data = [
     'imaginary',
     'multiverse',
     'intergalactic',
     'multidimensional',
     'earthly',
-  ]);
+  ];
 
   const increase = () => {
     current === data.length - 1 ? setCurrent(0) : setCurrent(current + 1);

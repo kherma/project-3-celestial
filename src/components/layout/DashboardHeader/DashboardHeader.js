@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import { FaShoppingCart } from 'react-icons/fa';
 
-import TopbarMobile from '../../feature/TopbarMobile/TopbarMobile';
+import TopbarMobile from '../../feature/TopbarMobile/TopbarMobileContainer';
 import TopbarDesktop from '../../feature/TopbarDesktop/TopbarDesktopContainer';
 
 const DashboardHeader = ({ toggleAside }) => {

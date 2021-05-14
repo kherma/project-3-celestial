@@ -1,51 +1,40 @@
 import React, { useState } from 'react';
 import styles from './TopbarMobile.module.scss';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import { FaTrash, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
+import Dropdown from '../DropdownMenu/DropdownMenu';
 
-const TopbarMobile = () => {
+const TopbarMobile = ({ total, planets, remove }) => {
   const [isToggled, setIsToggeld] = useState(false);
   return (
     <section className={styles.root}>
-      <div className={styles.chartContainer}>
-        <CurrancyDisplay containerClass={styles.currancyTag} amount={10000} />
+      <CurrancyDisplay containerClass={styles.currancyTag} amount={total} />
+      <button
+        className={styles.btnToggle}
+        onClick={() => setIsToggeld(!isToggled)}
+      >
         {isToggled ? (
-          <FaChevronUp
-            className={styles.icon}
-            onClick={() => {
-              setIsToggeld(false);
-            }}
-          />
+          <FaChevronUp className={styles.icon} />
         ) : (
-          <FaChevronDown
-            className={styles.icon}
-            onClick={() => {
-              setIsToggeld(true);
-            }}
-          />
+          <FaChevronDown className={styles.icon} />
         )}
-      </div>
-      {isToggled && (
-        <div className={styles.chartItems}>
-          <ul className={styles.chartList}>
-            <li className={styles.chartItem}>
-              <div className={styles.planetContainer}></div>
-              <CurrancyDisplay
-                containerClass={styles.currancyTagItem}
-                amount={10000}
-              />
-              <div className={styles.trashIconContainer}>
-                <FaTrash className={styles.trashIcon} />
-              </div>
-            </li>
-          </ul>
-        </div>
-      )}
+      </button>
+      {isToggled && <Dropdown planets={planets} remove={remove} />}
     </section>
   );
+};
+
+TopbarMobile.propTypes = {
+  total: PropTypes.any,
+  planets: PropTypes.array,
+  remove: PropTypes.func,
+};
+
+TopbarMobile.defaultProps = {
+  planets: [],
 };
 
 export default TopbarMobile;
