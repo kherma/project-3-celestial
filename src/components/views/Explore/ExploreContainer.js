@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import Explore from './Explore';
-import { getPaginatedResults } from '../../../redux/planetsRedux';
+import {
+  getPaginatedResults,
+  fetchAllFromAPI,
+} from '../../../redux/planetsRedux';
 import { getData } from '../../../redux/modalRedux';
 
 const mapStateToProps = (state) => ({
@@ -8,8 +11,8 @@ const mapStateToProps = (state) => ({
   modal: getData(state),
 });
 
-// const mapDispatchToProps = (dispatch) => ({
-//   action: (arg) => dispatch(sampleActionCreator(arg)),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: (arg) => dispatch(fetchAllFromAPI(arg)),
+});
 
-export default connect(mapStateToProps)(Explore);
+export default connect(mapStateToProps, mapDispatchToProps)(Explore);

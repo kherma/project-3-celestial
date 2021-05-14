@@ -9,35 +9,38 @@ import PlanetView from '../PlanetView/PlanetView';
 import CurrancyDisplay from '../CurrancyDisplay/CurrancyDisplay';
 import AddToCart from '../AddToCart/AddToCartContainer';
 
-const PlanetListItem = ({ data }) => {
+const PlanetListItem = ({
+  data: {
+    data: { name, size, price },
+    styles: planetStyles,
+    _id,
+  },
+}) => {
   return (
     <div className={styles.root}>
-      <h3 className={styles.name}>{data.data.name}</h3>
+      <h3 className={styles.name}>{name}</h3>
       <Link
         to={{
-          pathname: `/planet/${data.id}`,
-          state: data.id,
+          pathname: `/planet/${_id}`,
+          state: _id,
         }}
         className={styles.planetContainer}
       >
         <PlanetView
-          {...data.styles}
+          {...planetStyles}
           className={clsx(
             styles.planet,
-            data.data.size === 'small' && styles.smallT,
-            data.data.size === 'medium' && styles.mediumT,
-            data.data.size === 'large' && styles.largeT,
-            data.data.size === 'huge' && styles.hugeT
+            size === 'small' && styles.smallT,
+            size === 'medium' && styles.mediumT,
+            size === 'large' && styles.largeT,
+            size === 'huge' && styles.hugeT
           )}
         />
       </Link>
       <div className={styles.container}>
-        <CurrancyDisplay
-          containerClass={styles.currancy}
-          amount={data.data.price}
-        />
+        <CurrancyDisplay containerClass={styles.currancy} amount={price} />
         <div className={styles.cartContainer}>
-          <AddToCart id={data.id} />
+          <AddToCart id={_id} />
         </div>
       </div>
     </div>
@@ -49,7 +52,7 @@ PlanetListItem.propTypes = {
 };
 
 PlanetListItem.defaultProps = {
-  data: { data: {} },
+  data: { data: {}, styles: {}, _id: '' },
 };
 
 export default PlanetListItem;

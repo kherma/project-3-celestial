@@ -10,7 +10,7 @@ class Planet {
       atmosphere: [],
       ozoneLayer: false,
       temperature: '',
-      population: false,
+      population: 0,
       description: '',
       price: 100,
     };

@@ -7,26 +7,30 @@ export const getTopbarData = (state) => {
     cart: { data: cartData },
   } = state;
 
-  return planetData
-    .filter(({ id }) => cartData.some((idInCart) => idInCart === id))
-    .map(({ data: { price }, id, numberSize, styles }) => {
-      const newTransformValue = 100 - Math.floor((100 - numberSize) / 5);
-      const newTransform = `scale(${
-        newTransformValue === 100 ? 1 : `0.${newTransformValue}`
-      })`;
-      const newStyles = {
-        ...styles,
-        rings: {
-          ...styles.rings,
-          transform: `translate(-50%, -50%) ${newTransform}`,
-        },
-        planet: {
-          ...styles.planet,
-          transform: newTransform,
-        },
-      };
-      return { price, id, newStyles };
-    });
+  return cartData.map((idInCart) => {
+    const planet = planetData.find(({ _id }) => _id === idInCart);
+    const {
+      data: { price, numberSize },
+      _id,
+      styles,
+    } = planet;
+    const newTransformValue = 100 - Math.floor((100 - numberSize) / 5);
+    const newTransform = `scale(${
+      newTransformValue === 100 ? 1 : `0.${newTransformValue}`
+    })`;
+    const newStyles = {
+      ...styles,
+      rings: {
+        ...styles.rings,
+        transform: `translate(-50%, -50%) ${newTransform}`,
+      },
+      planet: {
+        ...styles.planet,
+        transform: newTransform,
+      },
+    };
+    return { price, _id, newStyles };
+  });
 };
 export const getTotal = (state) => {
   const {
@@ -37,7 +41,7 @@ export const getTotal = (state) => {
   if (cartData.length === 0) return 0;
 
   return planetData
-    .filter(({ id }) => cartData.some((idInCart) => idInCart === id))
+    .filter(({ _id }) => cartData.some((idInCart) => idInCart === _id))
     .map(({ data: { price } }) => {
       return price;
     })

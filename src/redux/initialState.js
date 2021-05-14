@@ -1,20 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 
-// *MOVE DATA TO DB
-import Planet from '../utils/seed';
-
-const planetData = [...Array(345)].map((_) => {
-  const planetData = new Planet();
-  planetData.generatePlanet();
-  const {
-    data,
-    settings: { numberSize },
-    styles,
-  } = planetData;
-  return { data, numberSize, styles, id: uuidv4() };
-});
-// =================================================
-
 export const initialState = {
   aside: {
     navigation: [
@@ -28,16 +13,16 @@ export const initialState = {
   planets: {
     currentPage: 1,
     resultsPerPage: 24,
-    data: planetData,
+    data: [],
     loading: {
-      active: true,
+      active: false,
       error: false,
     },
   },
   planet: {
     current: '',
     loading: {
-      active: true,
+      active: false,
       error: false,
     },
   },

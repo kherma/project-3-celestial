@@ -12,18 +12,18 @@ const TopbarDesktop = ({ total, planets, remove }) => {
     <div className={styles.root}>
       <div className={styles.cartItems}>
         <ul className={styles.cartList}>
-          {planets.map(({ id, newStyles, price }) => (
-            <li className={styles.cartItem} key={id}>
+          {planets.map(({ _id, newStyles, price }) => (
+            <li className={styles.cartItem} key={_id}>
               <Link
                 to={{
-                  pathname: `/planet/${id}`,
-                  state: id,
+                  pathname: `/planet/${_id}`,
+                  state: _id,
                 }}
                 className={styles.link}
               >
                 <PlanetView {...newStyles} className={styles.planet} />
               </Link>
-              <button className={styles.trash} onClick={() => remove(id)}>
+              <button className={styles.trash} onClick={() => remove(_id)}>
                 <FaTrash />
               </button>
               <div className={styles.priceTag}>

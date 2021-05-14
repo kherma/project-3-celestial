@@ -20,4 +20,8 @@ PlanetPage.propTypes = {
   setCurrenID: PropTypes.func,
 };
 
+PlanetPage.defaultProps = {
+  location: {},
+};
+
 export default PlanetPage;

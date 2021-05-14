@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Explore.module.scss';
 import PropTypes from 'prop-types';
 
@@ -7,8 +7,12 @@ import Pagination from '../../common/PaginationContainer/PaginationContainerCont
 import PlanetItem from '../../common/PlanetListItem/PlanetListItem';
 import Modal from '../../feature/ModalBox/ModalBoxContainer';
 
-const Explore = ({ results, modal: { show } }) => {
+const Explore = ({ results, modal: { show }, fetchData }) => {
   const scrollable = useRef();
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <div className={styles.root}>
@@ -22,7 +26,7 @@ const Explore = ({ results, modal: { show } }) => {
 
         <div className={styles.resultsContainer}>
           {results.map((data) => (
-            <ArticlePaper key={data.id}>
+            <ArticlePaper key={data._id}>
               <PlanetItem data={data} />
             </ArticlePaper>
           ))}
@@ -40,6 +44,7 @@ const Explore = ({ results, modal: { show } }) => {
 Explore.propTypes = {
   results: PropTypes.array,
   modal: PropTypes.object,
+  fetchData: PropTypes.func,
 };
 
 Explore.defaultProps = {
