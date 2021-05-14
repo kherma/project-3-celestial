@@ -1,0 +1,82 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
+
+.root {
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 100;
+  text-align: center;
+  width: 70%;
+  transition: all 0.3s;
+
+  animation: showup 0.3s ease-in-out forwards;
+
+  @include tablet {
+    width: 100%;
+    bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  @include mobile {
+    width: 100%;
+    bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  @include mobile-small {
+    display: grid;
+    place-items: center;
+    height: 20%;
+  }
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.text {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: $bold;
+  color: $primary-pink-1;
+
+  @include mobile {
+    font-size: 1.6rem;
+  }
+
+  @include mobile-small {
+    font-size: 1.4rem;
+  }
+}
+
+.btnClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  background-color: $dark;
+  padding: 0.5rem;
+  border-bottom-left-radius: 1rem;
+
+  & .icon {
+    font-size: 1.6rem;
+    color: $light;
+  }
+}

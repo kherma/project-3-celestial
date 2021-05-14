@@ -1,26 +1,29 @@
 import React from 'react';
 import styles from './TopbarDesktop.module.scss';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
-import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
 
-const TopbarDesktop = () => {
+import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
+import PlanetView from '../../common/PlanetView/PlanetView';
+
+const TopbarDesktop = ({ total, planets, remove }) => {
   return (
     <div className={styles.root}>
       <div className={styles.cartItems}>
         <ul className={styles.cartList}>
-          {[...Array(5)].map((item, index) => (
-            <li className={styles.cartItem} key={index}>
-              <Link to={`/planet/${index}`}>
-                <span className={styles.planet}></span>
+          {planets.map(({ id, newStyles, price }) => (
+            <li className={styles.cartItem} key={id}>
+              <Link to={`/planet/${id}`} className={styles.link}>
+                <PlanetView {...newStyles} className={styles.planet} />
               </Link>
-              <span className={styles.trash}>
+              <button className={styles.trash} onClick={() => remove(id)}>
                 <FaTrash />
-              </span>
+              </button>
               <div className={styles.priceTag}>
                 <CurrancyDisplay
                   containerClass={styles.currancyTag}
-                  amount={10000 * index}
+                  amount={price}
                 />
               </div>
             </li>
@@ -28,10 +31,20 @@ const TopbarDesktop = () => {
         </ul>
       </div>
       <div className={styles.currancyContainer}>
-        <CurrancyDisplay containerClass={styles.currancy} amount={0} />
+        <CurrancyDisplay containerClass={styles.currancy} amount={total} />
       </div>
     </div>
   );
+};
+
+TopbarDesktop.propTypes = {
+  total: PropTypes.any,
+  planets: PropTypes.array,
+  remove: PropTypes.func,
+};
+
+TopbarDesktop.defaultProps = {
+  planets: [],
 };
 
 export default TopbarDesktop;

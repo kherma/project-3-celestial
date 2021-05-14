@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import Explore from './Explore';
 import { getPaginatedResults } from '../../../redux/planetsRedux';
+import { getData } from '../../../redux/modalRedux';
 
 const mapStateToProps = (state) => ({
   results: getPaginatedResults(state),
+  modal: getData(state),
 });
 
 // const mapDispatchToProps = (dispatch) => ({

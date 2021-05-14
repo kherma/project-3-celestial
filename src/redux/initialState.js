@@ -38,6 +38,10 @@ export const initialState = {
     data: [],
     extras: [],
   },
+  modal: {
+    show: false,
+    message: '',
+  },
   user: {
     username: '',
     persona: false,

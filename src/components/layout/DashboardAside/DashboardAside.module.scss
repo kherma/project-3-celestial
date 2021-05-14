@@ -13,13 +13,13 @@
   transition: all 0.5s;
 
   @include tablet {
-    z-index: 100;
+    z-index: 200;
     position: fixed;
     width: 50%;
   }
 
   @include mobile {
-    z-index: 100;
+    z-index: 200;
     position: fixed;
     overflow: scroll;
   }

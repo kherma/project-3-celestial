@@ -1,6 +1,48 @@
 /* selectors */
 export const getCart = ({ cart }) => cart.data;
 export const getExtras = ({ cart }) => cart.extras;
+export const getTopbarData = (state) => {
+  const {
+    planets: { data: planetData },
+    cart: { data: cartData },
+  } = state;
+
+  return planetData
+    .filter(({ id }) => cartData.some((idInCart) => idInCart === id))
+    .map(({ data: { price }, id, numberSize, styles }) => {
+      const newTransformValue = 100 - Math.floor((100 - numberSize) / 5);
+      const newTransform = `scale(${
+        newTransformValue === 100 ? 1 : `0.${newTransformValue}`
+      })`;
+      const newStyles = {
+        ...styles,
+        rings: {
+          ...styles.rings,
+          transform: `translate(-50%, -50%) ${newTransform}`,
+        },
+        planet: {
+          ...styles.planet,
+          transform: newTransform,
+        },
+      };
+      return { price, id, newStyles };
+    });
+};
+export const getTotal = (state) => {
+  const {
+    planets: { data: planetData },
+    cart: { data: cartData },
+  } = state;
+
+  if (cartData.length === 0) return 0;
+
+  return planetData
+    .filter(({ id }) => cartData.some((idInCart) => idInCart === id))
+    .map(({ data: { price } }) => {
+      return price;
+    })
+    .reduce((acc, price) => acc + price);
+};
 
 /* action name creator */
 const reducerName = 'cart';
@@ -26,7 +68,7 @@ export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case ADD_TO_CART: {
       const newCart = [...statePart.data];
-      newCart.push(action.payload);
+      newCart.length < 10 && newCart.push(action.payload);
       return {
         ...statePart,
         data: newCart,
@@ -34,7 +76,6 @@ export default function reducer(statePart = [], action = {}) {
     }
     case REMOVE_FROM_CART: {
       const newCart = [...statePart.data];
-
       const index = newCart.indexOf(action.payload);
       newCart.splice(index, 1);
       return {

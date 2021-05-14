@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 import TopbarDesktop from './TopbarDesktop';
 import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+  getTopbarData,
+  getTotal,
+  removeFromCart,
+} from '../../../redux/cartRedux';
 
 const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
+  total: getTotal(state),
+  planets: getTopbarData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  remove: (arg) => dispatch(removeFromCart(arg)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopbarDesktop);
