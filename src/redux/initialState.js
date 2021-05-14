@@ -34,6 +34,13 @@ export const initialState = {
       error: false,
     },
   },
+  planet: {
+    current: '',
+    loading: {
+      active: true,
+      error: false,
+    },
+  },
   cart: {
     data: [],
     extras: [],

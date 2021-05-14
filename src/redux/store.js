@@ -7,6 +7,7 @@ import asideReducer from './asideRedux';
 import planetsReducer from './planetsRedux';
 import cartReducer from './cartRedux';
 import modalReducer from './modalRedux';
+import planetReducer from './planetRedux';
 
 // define reducers
 const reducers = {
@@ -14,6 +15,7 @@ const reducers = {
   planets: planetsReducer,
   cart: cartReducer,
   modal: modalReducer,
+  planet: planetReducer,
 };
 
 // add blank reducers for initial state properties without reducers

@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import PlanetPage from './PlanetPage';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+import { getData, setCurrent } from '../../../redux/planetRedux';
 
 const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
+  data: getData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  setCurrenID: (arg) => dispatch(setCurrent(arg)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlanetPage);

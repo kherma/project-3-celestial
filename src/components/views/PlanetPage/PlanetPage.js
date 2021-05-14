@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './PlanetPage.module.scss';
 import PropTypes from 'prop-types';
 
-const PlanetPage = ({children }) => {
+const PlanetPage = ({ location: { state }, data, setCurrenID }) => {
+  useEffect(() => {
+    setCurrenID(state);
+  }, [state, setCurrenID]);
+
   return (
     <div className={styles.root}>
       <h2>PlanetPage</h2>
-      {children}
     </div>
   );
 };
 
 PlanetPage.propTypes = {
-  children: PropTypes.node,
+  location: PropTypes.object,
+  data: PropTypes.object,
+  setCurrenID: PropTypes.func,
 };
 
-export default PlanetPage ;
+export default PlanetPage;

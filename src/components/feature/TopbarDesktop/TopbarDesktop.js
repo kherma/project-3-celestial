@@ -14,7 +14,13 @@ const TopbarDesktop = ({ total, planets, remove }) => {
         <ul className={styles.cartList}>
           {planets.map(({ id, newStyles, price }) => (
             <li className={styles.cartItem} key={id}>
-              <Link to={`/planet/${id}`} className={styles.link}>
+              <Link
+                to={{
+                  pathname: `/planet/${id}`,
+                  state: id,
+                }}
+                className={styles.link}
+              >
                 <PlanetView {...newStyles} className={styles.planet} />
               </Link>
               <button className={styles.trash} onClick={() => remove(id)}>

@@ -27,7 +27,9 @@ const Discover = lazy(() =>
   import(/* webpackPrefetch: true */ './components/views/Discover/Discover')
 );
 const PlanetPage = lazy(() =>
-  import(/* webpackPrefetch: true */ './components/views/PlanetPage/PlanetPage')
+  import(
+    /* webpackPrefetch: true */ './components/views/PlanetPage/PlanetPageContainer'
+  )
 );
 const Settings = lazy(() =>
   import(/* webpackPrefetch: true */ './components/views/Settings/Settings')

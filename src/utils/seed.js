@@ -1,5 +1,4 @@
 /* eslint-disable indent */
-
 import colorSchemes from './colorSchemes';
 
 class Planet {
@@ -44,9 +43,8 @@ class Planet {
       if (i <= 6) {
         i === 6
           ? (this.data.name += '-')
-          : (this.data.name += letters[
-              this.random(0, letters.length - 1)
-            ].toUpperCase());
+          : (this.data.name +=
+              letters[this.random(0, letters.length - 1)].toUpperCase());
       } else if (i > 6 && i <= 10) {
         i === 10
           ? (this.data.name += '-')
@@ -205,14 +203,8 @@ class Planet {
   }
 
   generateDescription() {
-    const {
-      name,
-      size,
-      distanceFromSun,
-      temperature,
-      atmosphere,
-      population,
-    } = this.data;
+    const { name, size, distanceFromSun, temperature, atmosphere, population } =
+      this.data;
     const options = {
       temperature: [
         'it has great potential for resource extraction',

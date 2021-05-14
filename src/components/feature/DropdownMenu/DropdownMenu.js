@@ -16,7 +16,13 @@ const DropdownMenu = ({ planets, remove }) => {
         {planets.map(({ id, newStyles, price }) => (
           <li className={styles.listItem} key={id}>
             <ArticlePaper className={styles.paper}>
-              <Link to={`/planet/${id}`} className={styles.link}>
+              <Link
+                to={{
+                  pathname: `/planet/${id}`,
+                  state: id,
+                }}
+                className={styles.link}
+              >
                 <PlanetView {...newStyles} className={styles.planet} />
               </Link>
               <CurrancyDisplay

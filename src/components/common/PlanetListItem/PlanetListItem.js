@@ -13,7 +13,13 @@ const PlanetListItem = ({ data }) => {
   return (
     <div className={styles.root}>
       <h3 className={styles.name}>{data.data.name}</h3>
-      <Link to={`/planet/${data.id}`} className={styles.planetContainer}>
+      <Link
+        to={{
+          pathname: `/planet/${data.id}`,
+          state: data.id,
+        }}
+        className={styles.planetContainer}
+      >
         <PlanetView
           {...data.styles}
           className={clsx(
