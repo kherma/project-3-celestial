@@ -1,18 +1,27 @@
 import React from 'react';
 import styles from './NotFound.module.scss';
-import PropTypes from 'prop-types';
 
-const NotFound = ({children }) => {
+import { Link } from 'react-router-dom';
+
+import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
+
+const NotFound = () => {
   return (
     <div className={styles.root}>
-      <h2>NotFound</h2>
-      {children}
+      <ArticlePaper className={styles.container}>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>404</h1>
+          <p className={styles.text}>Sorry, we couldn&apos;t find this page</p>
+        </div>
+        <div className={styles.planet}></div>
+        <div className={styles.linkContainer}>
+          <Link to="/dashboard" className={styles.link}>
+            Go back to Dashboard
+          </Link>
+        </div>
+      </ArticlePaper>
     </div>
   );
 };
 
-NotFound.propTypes = {
-  children: PropTypes.node,
-};
-
-export default NotFound ;
+export default NotFound;

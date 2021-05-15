@@ -2,6 +2,7 @@ import Axios from 'axios';
 
 /* selectors */
 export const getData = ({ planet }) => planet.data;
+export const getLoading = ({ planet }) => planet.loading;
 
 /* action name creator */
 const reducerName = 'planet';

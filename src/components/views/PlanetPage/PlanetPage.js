@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './PlanetPage.module.scss';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import Visualization from '../../common/PlanetProductViz/PlanetProductViz';
 import Atmosphere from '../../common/PlanetProductAtmosphere/PlanetProductAtmosphere';
@@ -13,6 +14,7 @@ const PlanetPage = ({
   location: { state },
   data: { _id, data, styles: planetStyles },
   fetchData,
+  loading,
 }) => {
   useEffect(() => {
     fetchData(state);
@@ -20,6 +22,7 @@ const PlanetPage = ({
 
   return (
     <div className={styles.root}>
+      {loading.error && <Redirect to="/not-found" />}
       <Visualization
         className={styles.visualization}
         planetStyles={planetStyles}
@@ -50,11 +53,13 @@ PlanetPage.propTypes = {
   data: PropTypes.object,
   fetchData: PropTypes.func,
   _id: PropTypes.string,
+  loading: PropTypes.object,
 };
 
 PlanetPage.defaultProps = {
   location: {},
   data: { data: {}, styles: {} },
+  loading: { error: false },
 };
 
 export default PlanetPage;

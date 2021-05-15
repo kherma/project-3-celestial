@@ -1,9 +1,14 @@
 import { connect } from 'react-redux';
 import PlanetPage from './PlanetPage';
-import { getData, fetchSingleFromApi } from '../../../redux/planetRedux';
+import {
+  getData,
+  getLoading,
+  fetchSingleFromApi,
+} from '../../../redux/planetRedux';
 
 const mapStateToProps = (state) => ({
   data: getData(state),
+  loading: getLoading(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

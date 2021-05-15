@@ -1,4 +1,129 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
-// .root {
-// }
+.root {
+  padding: 5rem;
+  height: 100%;
+
+  @include tablet {
+    padding: 3rem;
+  }
+
+  @include mobile {
+    padding: 1rem;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+
+  @include tablet {
+    grid-template: repeat(3, 1fr) / 1fr;
+    height: 100%;
+  }
+
+  @include mobile {
+    grid-template: repeat(3, 1fr) / 1fr;
+    height: 100%;
+  }
+}
+
+.textContainer {
+  text-align: center;
+}
+
+.title {
+  font-size: 10rem;
+
+  @include tablet {
+    font-size: 15rem;
+  }
+
+  @include mobile-small {
+    font-size: 8rem;
+  }
+}
+
+.text {
+  color: $grey-dark-3;
+  font-size: 2rem;
+  text-transform: uppercase;
+
+  @include tablet {
+    font-size: 3rem;
+  }
+}
+
+.planet {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    $primary-green-1,
+    $primary-blue-1,
+    $primary-yellow-1,
+    $primary-red-1,
+    $primary-pink-1
+  );
+
+  box-shadow: inset -1.5rem -0.5rem 1rem rgba($dark, 0.5),
+    1.5rem 0.5rem 1rem rgba($dark, 0.5);
+
+  @include tablet {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  @include mobile {
+    margin-top: 5rem;
+    width: 17rem;
+    height: 17rem;
+  }
+
+  @include mobile-small {
+    margin-top: 0;
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+.link {
+  &:link,
+  &:visited {
+    background-color: $dark;
+    color: $light;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+
+    @include tablet {
+      font-size: 3rem;
+      padding: 2rem 4rem;
+      border-radius: 1rem;
+    }
+
+    @include mobile-small {
+      font-size: 2rem;
+      padding: 2rem 1rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  &:hover {
+    background-color: $light;
+    color: $dark;
+    border: 1px solid $dark;
+  }
+
+  &:active {
+    background-color: $dark;
+    color: $light;
+    border: 1px solid transparent;
+  }
+}
