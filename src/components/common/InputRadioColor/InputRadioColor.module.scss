@@ -1,0 +1,30 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  border: 1px solid $dark;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.checkIndicator {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($light, 0.3);
+  opacity: 0;
+}
+
+.inputHidden {
+  display: none;
+  visibility: hidden;
+}
+
+.inputHidden:checked + .checkIndicator {
+  opacity: 1;
+}

@@ -33,6 +33,7 @@ const PlanetPage = ({
         className={styles.widget}
         planetStyles={planetStyles}
         {...data}
+        id={_id}
       />
       <ArticlePaper className={styles.descriptionContainer}>
         <p className={styles.description}>{data && data.description}</p>
