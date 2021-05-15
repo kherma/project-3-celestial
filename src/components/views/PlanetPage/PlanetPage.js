@@ -35,7 +35,11 @@ const PlanetPage = ({
         <p className={styles.description}>{data && data.description}</p>
       </ArticlePaper>
       <Data {...data} className={styles.data} />
-      <Distance className={styles.distance} {...data} />
+      <Distance
+        className={styles.distance}
+        {...data}
+        planetStyles={planetStyles}
+      />
       <Atmosphere className={styles.atmosphere} {...data} />
     </div>
   );
