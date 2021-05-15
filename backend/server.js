@@ -9,8 +9,8 @@ const app = express();
 
 /* MIDDLEWARE */
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
 /* API ENDPOINTS */
 app.use('/api', planetsRoutes);

@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import Discover from './Discover';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+import { getData, fetchRandomFromApi } from '../../../redux/seedRedux';
 
 const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
+  data: getData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  fetchData: (arg) => dispatch(fetchRandomFromApi()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Discover);

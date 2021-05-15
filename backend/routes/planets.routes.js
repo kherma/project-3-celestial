@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const planetSeed = require('../utils/seed');
 const Planet = require('../models/planets.model');
 
 router.get('/planets', async (req, res) => {
@@ -15,10 +15,20 @@ router.get('/planets', async (req, res) => {
   }
 });
 
+router.get('/random', async (req, res) => {
+  try {
+    const result = new planetSeed();
+    result.generatePlanet();
+    res.json({ data: result.data, styles: result.styles });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // router.post('/planets', async (req, res) => {
 //   const { data, styles } = req.body;
 //   try {
-//     const newPlanet = new Planet({ data, styles });
+//     const newPlanet = new Planet({ data: data, styles: styles });
 //     await newPlanet.save();
 //     res.status(200).json(Planet);
 //   } catch (err) {

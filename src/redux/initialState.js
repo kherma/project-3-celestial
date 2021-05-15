@@ -26,6 +26,13 @@ export const initialState = {
       error: false,
     },
   },
+  discover: {
+    data: {},
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
   cart: {
     data: [],
     extras: [],

@@ -29,13 +29,13 @@ const ringsStylesSchema = new mongoose.Schema({
 });
 
 const stylesSchema = new mongoose.Schema({
-  planet: { planetStylesSchema },
-  rings: { ringsStylesSchema },
+  planet: planetStylesSchema,
+  rings: ringsStylesSchema,
 });
 
 const planetSchema = new mongoose.Schema({
-  data: { dataSchema },
-  styles: { stylesSchema },
+  data: dataSchema,
+  styles: stylesSchema,
 });
 
 module.exports = mongoose.model('Planet', planetSchema);
