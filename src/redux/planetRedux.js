@@ -1,35 +1,65 @@
-/* selectors */
-export const getData = (state) => {
-  const {
-    planet: { current },
-  } = state;
-  const {
-    planets: { data },
-  } = state;
+import Axios from 'axios';
 
-  return data.find((data) => data.id === current);
-};
+/* selectors */
+export const getData = ({ planet }) => planet.data;
 
 /* action name creator */
 const reducerName = 'planet';
 const createActionName = (name) => `action/${reducerName}/${name}`;
 
 /* action types */
-const SET_CURRENT = createActionName('SET_CURRENT');
+const FETCH_START = createActionName('FETCH_START');
+const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
+const FETCH_ERROR = createActionName('FETCH_ERROR');
 
 /* action creators */
-export const setCurrent = (payload) => ({
-  payload,
-  type: SET_CURRENT,
-});
+export const fetchStarted = () => ({ type: FETCH_START });
+export const fetchSuccess = (payload) => ({ payload, type: FETCH_SUCCESS });
+export const fetchError = (payload) => ({ payload, type: FETCH_ERROR });
+
+export const fetchSingleFromApi = (id) => {
+  return (dispatch, getState) => {
+    dispatch(fetchStarted());
+
+    Axios.get(`http://localhost:8000/api/planets/${id}`)
+      .then((res) => {
+        dispatch(fetchSuccess(res.data));
+      })
+      .catch((err) => {
+        dispatch(fetchError(err.message || true));
+      });
+  };
+};
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case SET_CURRENT: {
+    case FETCH_START: {
       return {
         ...statePart,
-        current: action.payload,
+        loading: {
+          active: true,
+          error: false,
+        },
+      };
+    }
+    case FETCH_SUCCESS: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: false,
+        },
+        data: action.payload,
+      };
+    }
+    case FETCH_ERROR: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: action.payload,
+        },
       };
     }
     default:

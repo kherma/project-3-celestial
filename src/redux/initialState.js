@@ -20,7 +20,7 @@ export const initialState = {
     },
   },
   planet: {
-    current: '',
+    data: {},
     loading: {
       active: false,
       error: false,

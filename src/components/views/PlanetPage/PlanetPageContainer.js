@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import PlanetPage from './PlanetPage';
-import { getData, setCurrent } from '../../../redux/planetRedux';
+import { getData, fetchSingleFromApi } from '../../../redux/planetRedux';
 
 const mapStateToProps = (state) => ({
   data: getData(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrenID: (arg) => dispatch(setCurrent(arg)),
+  fetchData: (arg) => dispatch(fetchSingleFromApi(arg)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlanetPage);

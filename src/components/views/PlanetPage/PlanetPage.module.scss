@@ -1,4 +1,59 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles//mixins.scss';
 
-// .root {
-// }
+.root {
+  display: grid;
+  padding: 5rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 5rem;
+
+  @include tablet {
+    grid-gap: 3rem;
+    padding: 3rem;
+  }
+
+  @include mobile {
+    grid-gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+.visualization {
+  grid-column: 1/7;
+
+  @include mobile {
+    grid-column: 1/13;
+  }
+}
+
+.widget {
+  grid-column: 7/13;
+
+  @include mobile {
+    grid-column: 1/13;
+  }
+}
+
+.descriptionContainer {
+  grid-column: 1/13;
+}
+
+.data {
+  grid-column: 1/13;
+}
+
+.distance {
+  grid-column: 1/7;
+
+  @include mobile {
+    grid-column: 1/13;
+  }
+}
+
+.atmosphere {
+  grid-column: 7/13;
+
+  @include mobile {
+    grid-column: 1/13;
+  }
+}
