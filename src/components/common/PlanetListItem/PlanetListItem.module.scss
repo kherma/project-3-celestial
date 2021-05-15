@@ -56,25 +56,8 @@
 
   &:hover,
   &:focus-within {
-    background-color: $dark;
-    background-image: radial-gradient(
-        circle at center,
-        $light 10%,
-        transparent 20%
-      ),
-      radial-gradient(circle at center, $primary-yellow-1 10%, transparent 50%),
-      radial-gradient(circle at center, $light 20%, transparent 50%),
-      radial-gradient(circle at center, $light 10%, transparent 40%),
-      radial-gradient(circle at center, $primary-yellow-2 20%, transparent 30%),
-      radial-gradient(circle at center, $light 10%, transparent 50%),
-      radial-gradient(circle at center, $primary-yellow-3 30%, transparent 60%),
-      radial-gradient(circle at center, $primary-red-1 10%, transparent 30%),
-      radial-gradient(circle at center, $light 20%, transparent 40%),
-      radial-gradient(circle at center, $primary-yellow-4 50%, transparent 50%);
-    background-size: 1rem 1rem;
-    background-position: 79% 30%, 91% 33%, 96% 24%, 78% 18%, 70% 11%, 63% 3%,
-      50% 5%, 10% 90%, 4% 63%, 47% 95%;
-    background-repeat: no-repeat;
+    @include spaceBackground;
+
     & .planet {
       &.smallT {
         transform: scale(1.5);

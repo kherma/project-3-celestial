@@ -12,14 +12,12 @@ const PlanetProductViz = ({ className, planetStyles, name, price, id }) => {
   return (
     <ArticlePaper className={clsx(styles.root, className)}>
       <h4 className={styles.title}>{name}</h4>
-      <PlanetView {...planetStyles} className={styles.planet} />
+      <div className={styles.planetContainer}>
+        <PlanetView {...planetStyles} className={styles.planet} />
+      </div>
       <div className={styles.currancyContainer}>
-        <div className={styles.container}>
-          <CurrancyDisplay containerClass={styles.currancy} amount={price} />
-          <div className={styles.cartContainer}>
-            <AddToCart id={id} />
-          </div>
-        </div>
+        <CurrancyDisplay containerClass={styles.currancy} amount={price} />
+        <AddToCart id={id} />
       </div>
     </ArticlePaper>
   );
