@@ -1,4 +1,48 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  display: flex;
+  justify-content: space-between;
+
+  & > * {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    width: 100%;
+    color: $light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    padding: 2rem 0;
+  }
+}
+
+.ozone {
+  position: absolute;
+  left: 0;
+  background-color: $primary-blue-1;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.troposphere {
+  background-color: $atmosphere-1;
+}
+
+.stratosphere {
+  background-color: $atmosphere-2;
+  position: relative;
+}
+
+.mesosphere {
+  background-color: $atmosphere-3;
+}
+
+.thermosphere {
+  background-color: $atmosphere-4;
+}
+
+.exosphere {
+  background-color: $atmosphere-5;
+}

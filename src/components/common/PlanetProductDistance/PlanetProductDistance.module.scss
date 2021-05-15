@@ -16,7 +16,7 @@
   background-repeat: no-repeat;
 
   @include tablet {
-    height: 20rem;
+    min-height: 20rem;
     background-image: radial-gradient(
       circle at -50% 50%,
       $primary-yellow-2 25%,

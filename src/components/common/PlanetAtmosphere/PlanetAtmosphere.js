@@ -9,11 +9,11 @@ const PlanetAtmosphere = ({ atmosphere, ozoneLayer }) => {
       {atmosphere.map((item, index) => (
         <p
           className={clsx(
-            item === 'troposphere' && styles.troposphereCold,
-            item === 'stratosphere' && styles.stratosphereCold,
-            item === 'mesosphere' && styles.mesosphereCold,
-            item === 'thermosphere' && styles.thermosphereCold,
-            item === 'exosphere' && styles.exosphereCold
+            item === 'troposphere' && styles.troposphere,
+            item === 'stratosphere' && styles.stratosphere,
+            item === 'mesosphere' && styles.mesosphere,
+            item === 'thermosphere' && styles.thermosphere,
+            item === 'exosphere' && styles.exosphere
           )}
           key={index}
         >
