@@ -31,7 +31,8 @@
   display: block;
   width: 30rem;
   height: 25rem;
-  background-color: $primary-pink-1;
+  background-color: $dark;
+  transition: all 0.3s;
   clip-path: polygon(
     25% 0%,
     75% 0%,

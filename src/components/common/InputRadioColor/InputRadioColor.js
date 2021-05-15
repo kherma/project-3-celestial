@@ -2,24 +2,35 @@ import React from 'react';
 import styles from './InputRadioColor.module.scss';
 import PropTypes from 'prop-types';
 
-const InputRadioColor = ({ reg, value }) => {
+const InputRadioColor = ({ reg, value, tshirt, checked }) => {
+  const handleColorChange = () => {
+    tshirt.current.style.backgroundColor = value;
+  };
+
   return (
     <label style={{ backgroundColor: value }} className={styles.root}>
       <input
+        onFocus={handleColorChange}
         className={styles.inputHidden}
+        defaultChecked={checked ? true : false}
         type="radio"
         value={value}
-        {...reg('color')}
+        {...reg('color', { required: true })}
       />
-      <span className={styles.checkIndicator}></span>
+
+      <span
+        style={{ backgroundColor: value }}
+        className={styles.checkIndicator}
+      ></span>
     </label>
   );
 };
 
 InputRadioColor.propTypes = {
-  color: PropTypes.string,
   value: PropTypes.string,
   reg: PropTypes.func,
+  tshirt: PropTypes.object,
+  checked: PropTypes.bool,
 };
 
 export default InputRadioColor;
