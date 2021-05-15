@@ -1,7 +1,63 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
 .root {
   display: grid;
   grid-gap: 5rem;
   grid-template-columns: repeat(3, 1fr);
+
+  @include tablet {
+    grid-gap: 3rem;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+}
+
+.temperatureContainer {
+  display: grid;
+  place-items: center;
+
+  &.cold {
+    background-color: $primary-blue-2;
+  }
+  &.regular {
+    background-color: $primary-yellow-2;
+  }
+  &.hot {
+    background-color: $primary-red-1;
+  }
+
+  & .temperature {
+    color: $light;
+  }
+}
+
+.populationContainer {
+  background-color: $dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .icon {
+    color: $light;
+    font-size: 4rem;
+    margin-right: 1rem;
+  }
+  & .population {
+    color: $light;
+  }
+}
+
+.sizeContainer {
+  background-color: $dark;
+
+  & .size {
+    margin-top: 1rem;
+    color: $light;
+    text-align: center;
+    text-transform: uppercase;
+  }
 }

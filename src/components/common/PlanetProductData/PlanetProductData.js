@@ -11,20 +11,25 @@ import SizeComparison from '../../common/SizeComparison/SizeComparison';
 const PlanetProductData = ({ className, size, temperature, population }) => {
   return (
     <div className={clsx(styles.root, className)}>
-      <ArticlePaper className={styles.temperatureContainer}>
+      <ArticlePaper
+        className={clsx(
+          styles.temperatureContainer,
+          temperature > 60 && styles.hot,
+          temperature <= 60 && temperature >= 0 && styles.regular,
+          temperature < 0 && styles.cold
+        )}
+      >
         <h4 className={styles.temperature}>
           {temperature} <>&#x000B0;C</>
         </h4>
       </ArticlePaper>
       <ArticlePaper className={styles.populationContainer}>
-        <h4 className={styles.population}>
-          <IoMan />
-          {population}
-        </h4>
+        <IoMan className={styles.icon} />
+        <h4 className={styles.population}>{population}</h4>
       </ArticlePaper>
       <ArticlePaper className={styles.sizeContainer}>
         <SizeComparison size={size} />
-        <h5 className={styles.Size}>{size}</h5>
+        <h5 className={styles.size}>{size}</h5>
       </ArticlePaper>
     </div>
   );
