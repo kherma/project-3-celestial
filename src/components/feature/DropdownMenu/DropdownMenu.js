@@ -13,13 +13,13 @@ const DropdownMenu = ({ planets, remove }) => {
   return (
     <div className={styles.root}>
       <ul className={styles.list}>
-        {planets.map(({ _id, newStyles, price }) => (
-          <li className={styles.listItem} key={_id}>
+        {planets.map(({ id, newStyles, price }) => (
+          <li className={styles.listItem} key={id}>
             <ArticlePaper className={styles.paper}>
               <Link
                 to={{
-                  pathname: `/planet/${_id}`,
-                  state: _id,
+                  pathname: `/planet/${id}`,
+                  state: id,
                 }}
                 className={styles.link}
               >
@@ -29,7 +29,10 @@ const DropdownMenu = ({ planets, remove }) => {
                 containerClass={styles.currancyTag}
                 amount={price}
               />
-              <button className={styles.btnTrash} onClick={() => remove(_id)}>
+              <button
+                className={styles.btnTrash}
+                onClick={() => remove({ id })}
+              >
                 <FaTrash className={styles.trashIcon} />
               </button>
             </ArticlePaper>

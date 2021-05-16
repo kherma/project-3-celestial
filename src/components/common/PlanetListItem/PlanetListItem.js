@@ -11,7 +11,7 @@ import AddToCart from '../AddToCart/AddToCartContainer';
 
 const PlanetListItem = ({
   data: {
-    data: { name, size, price },
+    data: { name, size, price, numberSize },
     styles: planetStyles,
     _id,
   },
@@ -40,7 +40,12 @@ const PlanetListItem = ({
       <div className={styles.container}>
         <CurrancyDisplay containerClass={styles.currancy} amount={price} />
         <div className={styles.cartContainer}>
-          <AddToCart id={_id} planetStyles={planetStyles} price={price} />
+          <AddToCart
+            id={_id}
+            planetStyles={planetStyles}
+            price={price}
+            numberSize={numberSize}
+          />
         </div>
       </div>
     </div>
@@ -52,7 +57,7 @@ PlanetListItem.propTypes = {
 };
 
 PlanetListItem.defaultProps = {
-  data: { data: {}, styles: {}, _id: '' },
+  data: { data: {}, styles: {}, _id: '', numberSize: 0 },
 };
 
 export default PlanetListItem;

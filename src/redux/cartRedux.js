@@ -1,6 +1,28 @@
 /* selectors */
 export const getCart = ({ cart }) => cart.data;
 export const getLimit = ({ cart }) => cart.cartLimit;
+export const getTopbarData = ({ cart }) => {
+  const { data } = cart;
+
+  return data.map(({ price, id, numberSize, planetStyles }) => {
+    const newTransformValue = 100 - Math.floor((100 - numberSize) / 5);
+    const newTransform = `scale(${
+      newTransformValue === 100 ? 1 : `0.${newTransformValue}`
+    })`;
+    const newStyles = {
+      ...planetStyles,
+      rings: {
+        ...planetStyles.rings,
+        transform: `translate(-50%, -50%) ${newTransform}`,
+      },
+      planet: {
+        ...planetStyles.planet,
+        transform: newTransform,
+      },
+    };
+    return { price, id, newStyles };
+  });
+};
 
 /* action name creator */
 const reducerName = 'cart';
@@ -41,7 +63,6 @@ export default function reducer(statePart = [], action = {}) {
     }
     case REMOVE_FROM_CART: {
       const newCart = [...statePart.data];
-      console.log(newCart);
       const index = newCart.findIndex(({ id }) => id === action.payload.id);
       newCart.splice(index, 1);
       localStorage.setItem('cart', JSON.stringify(newCart));

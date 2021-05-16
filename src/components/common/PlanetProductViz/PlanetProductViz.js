@@ -8,7 +8,14 @@ import AddToCart from '../../common/AddToCart/AddToCartContainer';
 import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
 import PlanetView from '../PlanetView/PlanetView';
 
-const PlanetProductViz = ({ className, planetStyles, name, price, id }) => {
+const PlanetProductViz = ({
+  className,
+  planetStyles,
+  name,
+  price,
+  id,
+  numberSize,
+}) => {
   return (
     <ArticlePaper className={clsx(styles.root, className)}>
       <h4 className={styles.title}>{name}</h4>
@@ -17,7 +24,12 @@ const PlanetProductViz = ({ className, planetStyles, name, price, id }) => {
       </div>
       <div className={styles.currancyContainer}>
         <CurrancyDisplay containerClass={styles.currancy} amount={price} />
-        <AddToCart id={id} planetStyles={planetStyles} price={price} />
+        <AddToCart
+          id={id}
+          planetStyles={planetStyles}
+          price={price}
+          numberSize={numberSize}
+        />
       </div>
     </ArticlePaper>
   );
@@ -28,6 +40,7 @@ PlanetProductViz.propTypes = {
   name: PropTypes.string,
   className: PropTypes.string,
   price: PropTypes.number,
+  numberSize: PropTypes.number,
   id: PropTypes.string,
 };
 

@@ -14,8 +14,9 @@ const AddToCart = ({
   modalToggler,
   price,
   planetStyles,
+  numberSize,
 }) => {
-  const planetObject = { id, planetStyles, price };
+  const planetObject = { id, planetStyles, price, numberSize };
   if (!cart.some((item) => item.id === planetObject.id)) {
     return (
       <button
@@ -54,6 +55,7 @@ AddToCart.propTypes = {
   modalToggler: PropTypes.func,
   limit: PropTypes.number,
   price: PropTypes.number,
+  numberSize: PropTypes.number,
   planetStyles: PropTypes.object,
 };
 
