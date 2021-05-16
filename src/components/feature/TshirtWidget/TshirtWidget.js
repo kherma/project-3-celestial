@@ -7,6 +7,7 @@ import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
 import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
 import PlanetView from '../../common/PlanetView/PlanetView';
 import TshirtForm from '../TshirtForm/TshirtFormContainer';
+import TshirtView from '../../common/TshirtView/TshirtView';
 
 const TshirtWidget = ({ className, planetStyles, id }) => {
   const tshirt = useRef();
@@ -23,10 +24,11 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
         className={clsx(styles.tshirtContainer, show && styles.show)}
         onClick={toggleShow}
       >
-        <span ref={tshirt} className={styles.tshirt}></span>
-        <div className={styles.planetContainer}>
-          <PlanetView {...planetStyles} className={styles.planet} />
-        </div>
+        <TshirtView
+          tshirt={tshirt}
+          planetStyles={planetStyles}
+          className={styles.tshirt}
+        />
         <div className={styles.CurrancyContainer}>
           <CurrancyDisplay amount={1} containerClass={styles.currancy} />
         </div>

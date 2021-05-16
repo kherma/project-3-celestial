@@ -78,36 +78,9 @@
   }
 }
 
-.planetContainer {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  & .planet {
-    transform: scale(0.25) rotate(-20deg);
-  }
-}
-
 .tshirt {
-  position: relative;
-  display: block;
   width: 30rem;
   height: 25rem;
-  background-color: $dark;
-  transition: all 0.3s;
-  clip-path: polygon(
-    25% 0%,
-    75% 0%,
-    100% 25%,
-    90% 40%,
-    75% 25%,
-    75% 100%,
-    25% 100%,
-    25% 25%,
-    10% 40%,
-    0% 25%
-  );
 
   &::before {
     content: '';
@@ -118,16 +91,6 @@
     border-top: 4rem solid $grey-dark-3;
     border-left: 4rem solid transparent;
     border-right: 4rem solid transparent;
-  }
-
-  @include tablet {
-    width: 25rem;
-    height: 20rem;
-  }
-
-  @include mobile-small {
-    width: 20rem;
-    height: 15rem;
   }
 }
 
