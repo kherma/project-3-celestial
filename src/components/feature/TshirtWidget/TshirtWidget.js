@@ -5,7 +5,6 @@ import clsx from 'clsx';
 
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
 import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
-import PlanetView from '../../common/PlanetView/PlanetView';
 import TshirtForm from '../TshirtForm/TshirtFormContainer';
 import TshirtView from '../../common/TshirtView/TshirtView';
 

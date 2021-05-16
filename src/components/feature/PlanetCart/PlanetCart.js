@@ -41,4 +41,8 @@ PlanetCart.propTypes = {
   remove: PropTypes.func,
 };
 
+PlanetCart.defaultProps = {
+  cart: [],
+};
+
 export default PlanetCart;

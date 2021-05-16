@@ -20,6 +20,60 @@
   }
 }
 
+.titleContainer {
+  text-align: center;
+  grid-column: 1/13;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @include tablet {
+    flex-direction: column;
+    min-height: 25rem;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    min-height: 25rem;
+  }
+
+  & .title {
+    text-transform: uppercase;
+    color: $grey;
+
+    @include mobile {
+      font-size: 3rem;
+    }
+
+    @include mobile-small {
+      font-size: 2rem;
+    }
+  }
+
+  & .link {
+    &:link,
+    &:visited {
+      padding: 2rem 4rem;
+      background-color: $dark;
+      font-size: 2rem;
+      color: $light;
+      text-transform: uppercase;
+      border-radius: 1rem;
+      transition: all 0.3s;
+
+      @include mobile-small {
+        font-size: 1.6rem;
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      background-color: $light;
+      color: $dark;
+    }
+  }
+}
+
 .productsContainer {
   grid-column: 1/10;
   width: 100%;
