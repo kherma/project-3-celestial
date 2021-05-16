@@ -8,10 +8,11 @@ import { FaShoppingCart } from 'react-icons/fa';
 import TopbarMobile from '../../feature/TopbarMobile/TopbarMobileContainer';
 import TopbarDesktop from '../../feature/TopbarDesktop/TopbarDesktopContainer';
 
-const DashboardHeader = ({ toggleAside, setExtras }) => {
+const DashboardHeader = ({ toggleAside, setExtras, setCart }) => {
   useEffect(() => {
     localStorage.getItem('extras') && setExtras();
-  }, [setExtras]);
+    localStorage.getItem('cart') && setCart();
+  }, [setExtras, setCart]);
   return (
     <header className={styles.root}>
       {window.matchMedia('(max-width: 1224px)').matches && (
@@ -40,6 +41,7 @@ const DashboardHeader = ({ toggleAside, setExtras }) => {
 DashboardHeader.propTypes = {
   toggleAside: PropTypes.func,
   setExtras: PropTypes.func,
+  setCart: PropTypes.func,
 };
 
 export default DashboardHeader;
