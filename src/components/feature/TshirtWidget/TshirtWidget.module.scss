@@ -2,17 +2,36 @@
 @import '../../../styles/mixins.scss';
 
 .root {
+  position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
   place-items: center;
+  width: 100%;
+}
+
+.formContainer {
+  width: 40%;
+  position: absolute;
+  z-index: 1;
+  transition: all 1s;
+  &.formShow {
+    transform: translateX(65%);
+  }
 }
 
 .tshirtContainer {
-  position: relative;
+  position: absolute;
   background-color: $grey-light-3;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba($dark, 0.5);
+  z-index: 10;
+  cursor: pointer;
+  transition: all 1s;
+
+  &.show {
+    transform: translateX(-35%);
+  }
 }
 
 .planetContainer {
@@ -52,7 +71,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-top: 4rem solid $grey-dark-1;
+    border-top: 4rem solid $grey-dark-3;
     border-left: 4rem solid transparent;
     border-right: 4rem solid transparent;
   }

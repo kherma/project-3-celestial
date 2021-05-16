@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './TshirtWidget.module.scss';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -11,9 +11,18 @@ import TshirtForm from '../TshirtForm/TshirtForm';
 const TshirtWidget = ({ className, planetStyles, id }) => {
   const tshirt = useRef();
 
+  const [show, setShow] = useState(false);
+
+  const toggleShow = () => {
+    setShow(!show);
+  };
+
   return (
     <ArticlePaper className={clsx(styles.root, className)}>
-      <div className={styles.tshirtContainer}>
+      <div
+        className={clsx(styles.tshirtContainer, show && styles.show)}
+        onClick={toggleShow}
+      >
         <span ref={tshirt} className={styles.tshirt}></span>
         <div className={styles.planetContainer}>
           <PlanetView {...planetStyles} className={styles.planet} />
@@ -22,7 +31,10 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
           <CurrancyDisplay amount={1} containerClass={styles.currancy} />
         </div>
       </div>
-      <TshirtForm className={styles.formContainer} tshirt={tshirt} />
+      <TshirtForm
+        className={clsx(styles.formContainer, show && styles.formShow)}
+        tshirt={tshirt}
+      />
     </ArticlePaper>
   );
 };
