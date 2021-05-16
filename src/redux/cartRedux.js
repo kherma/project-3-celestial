@@ -28,6 +28,7 @@ export default function reducer(statePart = [], action = {}) {
       const limit = statePart.cartLimit;
       const newCart = [...statePart.data];
       newCart.length < limit && newCart.push(action.payload);
+      localStorage.setItem('cart', JSON.stringify(newCart));
       return {
         ...statePart,
         data: newCart,
@@ -35,8 +36,10 @@ export default function reducer(statePart = [], action = {}) {
     }
     case REMOVE_FROM_CART: {
       const newCart = [...statePart.data];
-      const index = newCart.indexOf(action.payload);
+      console.log(newCart);
+      const index = newCart.findIndex(({ id }) => id === action.payload.id);
       newCart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(newCart));
       return {
         ...statePart,
         data: newCart,

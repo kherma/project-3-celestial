@@ -40,7 +40,7 @@ const PlanetListItem = ({
       <div className={styles.container}>
         <CurrancyDisplay containerClass={styles.currancy} amount={price} />
         <div className={styles.cartContainer}>
-          <AddToCart id={_id} />
+          <AddToCart id={_id} planetStyles={planetStyles} price={price} />
         </div>
       </div>
     </div>

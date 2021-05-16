@@ -17,7 +17,7 @@ const PlanetProductViz = ({ className, planetStyles, name, price, id }) => {
       </div>
       <div className={styles.currancyContainer}>
         <CurrancyDisplay containerClass={styles.currancy} amount={price} />
-        <AddToCart id={id} />
+        <AddToCart id={id} planetStyles={planetStyles} price={price} />
       </div>
     </ArticlePaper>
   );
