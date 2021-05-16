@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
 import AddToCart from './AddToCart';
-import { getCart, addToCart, removeFromCart } from '../../../redux/cartRedux';
+import {
+  getCart,
+  getLimit,
+  addToCart,
+  removeFromCart,
+} from '../../../redux/cartRedux';
 import { setModal } from '../../../redux/modalRedux';
 
 const mapStateToProps = (state) => ({
   cart: getCart(state),
+  limit: getLimit(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

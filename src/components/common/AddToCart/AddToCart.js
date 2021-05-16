@@ -5,18 +5,17 @@ import clsx from 'clsx';
 
 import { MdShoppingCart, MdRemoveShoppingCart } from 'react-icons/md';
 
-const AddToCart = ({ cart, add, remove, id, modalToggler }) => {
+const AddToCart = ({ cart, limit, add, remove, id, modalToggler }) => {
   if (!cart.includes(id)) {
     return (
       <button
         className={clsx(styles.btn, styles.btnAdd)}
         onClick={() => {
           add(id);
-          if (cart.length === 10)
+          if (cart.length === limit)
             modalToggler({
               show: true,
-              message:
-                'due to the inter-everything law maximum cart capacity is 10',
+              message: `due to the inter-everything law maximum cart capacity is ${limit}`,
             });
         }}
       >
@@ -43,6 +42,7 @@ AddToCart.propTypes = {
   remove: PropTypes.func,
   id: PropTypes.string,
   modalToggler: PropTypes.func,
+  limit: PropTypes.number,
 };
 
 AddToCart.defaultProps = {

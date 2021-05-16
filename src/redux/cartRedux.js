@@ -71,8 +71,9 @@ export const removeFromCart = (payload) => ({
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case ADD_TO_CART: {
+      const limit = statePart.cartLimit;
       const newCart = [...statePart.data];
-      newCart.length < 10 && newCart.push(action.payload);
+      newCart.length < limit && newCart.push(action.payload);
       return {
         ...statePart,
         data: newCart,

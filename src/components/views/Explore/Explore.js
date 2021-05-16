@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
 import Pagination from '../../common/PaginationContainer/PaginationContainerContainer';
 import PlanetItem from '../../common/PlanetListItem/PlanetListItem';
-import Modal from '../../feature/ModalBox/ModalBoxContainer';
 
 const Explore = ({ results, modal: { show }, fetchData }) => {
   const scrollable = useRef();
@@ -17,7 +16,6 @@ const Explore = ({ results, modal: { show }, fetchData }) => {
   return (
     <div className={styles.root}>
       <div className={styles.gridContainer} ref={scrollable}>
-        {show && <Modal />}
         <ArticlePaper>
           <div className={styles.pagination}>
             <Pagination container={scrollable} />
