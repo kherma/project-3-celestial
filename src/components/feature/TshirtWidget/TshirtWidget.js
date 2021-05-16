@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
 import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
 import PlanetView from '../../common/PlanetView/PlanetView';
-import TshirtForm from '../TshirtForm/TshirtForm';
+import TshirtForm from '../TshirtForm/TshirtFormContainer';
 
 const TshirtWidget = ({ className, planetStyles, id }) => {
   const tshirt = useRef();
@@ -34,6 +34,7 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
       <TshirtForm
         className={clsx(styles.formContainer, show && styles.formShow)}
         tshirt={tshirt}
+        id={id}
       />
     </ArticlePaper>
   );

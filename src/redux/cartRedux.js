@@ -1,6 +1,6 @@
 /* selectors */
 export const getCart = ({ cart }) => cart.data;
-export const getExtras = ({ cart }) => cart.extras;
+export const getLimit = ({ cart }) => cart.cartLimit;
 export const getTopbarData = (state) => {
   const {
     planets: { data: planetData },

@@ -34,8 +34,11 @@ export const initialState = {
     },
   },
   cart: {
+    cartLimit: 10,
     data: [],
-    extras: [],
+  },
+  extras: {
+    data: [],
   },
   modal: {
     show: false,

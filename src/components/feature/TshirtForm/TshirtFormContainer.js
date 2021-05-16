@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import TshirtForm from './TshirtForm';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+import { addToExtras } from '../../../redux/extrasRedux';
 
-const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
-});
+// const mapStateToProps = (state) => ({
+//   selector: sampleSelector(state),
+// });
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  addExtras: (arg) => dispatch(addToExtras(arg)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TshirtForm);
+export default connect(null, mapDispatchToProps)(TshirtForm);
