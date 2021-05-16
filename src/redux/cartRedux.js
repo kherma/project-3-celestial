@@ -1,52 +1,6 @@
 /* selectors */
 export const getCart = ({ cart }) => cart.data;
 export const getLimit = ({ cart }) => cart.cartLimit;
-export const getTopbarData = (state) => {
-  const {
-    planets: { data: planetData },
-    cart: { data: cartData },
-  } = state;
-
-  return cartData.map((idInCart) => {
-    const planet = planetData.find(({ _id }) => _id === idInCart);
-    const {
-      data: { price, numberSize },
-      _id,
-      styles,
-    } = planet;
-    const newTransformValue = 100 - Math.floor((100 - numberSize) / 5);
-    const newTransform = `scale(${
-      newTransformValue === 100 ? 1 : `0.${newTransformValue}`
-    })`;
-    const newStyles = {
-      ...styles,
-      rings: {
-        ...styles.rings,
-        transform: `translate(-50%, -50%) ${newTransform}`,
-      },
-      planet: {
-        ...styles.planet,
-        transform: newTransform,
-      },
-    };
-    return { price, _id, newStyles };
-  });
-};
-export const getTotal = (state) => {
-  const {
-    planets: { data: planetData },
-    cart: { data: cartData },
-  } = state;
-
-  if (cartData.length === 0) return 0;
-
-  return planetData
-    .filter(({ _id }) => cartData.some((idInCart) => idInCart === _id))
-    .map(({ data: { price } }) => {
-      return price;
-    })
-    .reduce((acc, price) => acc + price);
-};
 
 /* action name creator */
 const reducerName = 'cart';
