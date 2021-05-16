@@ -6,11 +6,14 @@ import { useForm } from 'react-hook-form';
 
 import InputColor from '../../common/InputRadioColor/InputRadioColor';
 import InputSize from '../../common/InputRadioSize/InputRadioSize';
+import InputCounter from '../../common/InpitCounter/InpitCounter';
 
 const TshirtForm = ({ className, tshirt }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue, reset } = useForm();
 
   const handleForm = (data) => {
+    reset({ qunatity: 1, color: '#000', size: 'm' });
+    tshirt.current.style.backgroundColor = '#000';
     console.log(data);
   };
 
@@ -40,7 +43,12 @@ const TshirtForm = ({ className, tshirt }) => {
           <InputSize reg={register} value="l" />
           <InputSize reg={register} value="xl" />
         </div>
-        <button type="submit">submit</button>
+        <div className={styles.countPicker}>
+          <InputCounter reg={register} setter={setValue} />
+          <button className={styles.btnSubmit} type="submit">
+            add
+          </button>
+        </div>
       </form>
     </div>
   );

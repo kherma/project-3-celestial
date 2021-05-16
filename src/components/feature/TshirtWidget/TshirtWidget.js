@@ -10,6 +10,7 @@ import TshirtForm from '../TshirtForm/TshirtForm';
 
 const TshirtWidget = ({ className, planetStyles, id }) => {
   const tshirt = useRef();
+
   return (
     <ArticlePaper className={clsx(styles.root, className)}>
       <div className={styles.tshirtContainer}>
