@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import Cart from './Cart';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+import { getTopbarData } from '../../../redux/cartRedux';
 
 const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
+  cart: getTopbarData(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   action: (arg) => dispatch(sampleActionCreator(arg)),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps)(Cart);

@@ -37,7 +37,7 @@ const Settings = lazy(() =>
   import(/* webpackPrefetch: true */ './components/views/Settings/Settings')
 );
 const Cart = lazy(() =>
-  import(/* webpackPrefetch: true */ './components/views/Cart/Cart')
+  import(/* webpackPrefetch: true */ './components/views/Cart/CartContainer')
 );
 const NotFound = lazy(() =>
   import(/* webpackPrefetch: true */ './components/views/NotFound/NotFound')

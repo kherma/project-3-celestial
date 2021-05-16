@@ -1,17 +1,16 @@
 import React from 'react';
 import styles from './Cart.module.scss';
-import clsx from 'clsx';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import SubmitCart from '../../feature/SubmitCart/SubmitCart';
-import PlanetCart from '../../feature/PlanetCart/PlanetCart';
+import PlanetCart from '../../feature/PlanetCart/PlanetCartContainer';
 import TshirtCart from '../../feature/TshirtCart/TshirtCart';
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   return (
     <div className={styles.root}>
       <section className={styles.productsContainer}>
-        <PlanetCart />
+        <PlanetCart cart={cart} />
         <TshirtCart />
       </section>
       <section className={styles.submitContainer}>
@@ -21,6 +20,8 @@ const Cart = () => {
   );
 };
 
-// Cart.propTypes = {};
+Cart.propTypes = {
+  cart: PropTypes.array,
+};
 
 export default Cart;

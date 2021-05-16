@@ -23,15 +23,20 @@
 .productsContainer {
   grid-column: 1/10;
   width: 100%;
+  display: grid;
+  grid-gap: 5rem;
+  grid-template-columns: 1fr;
 
   @include tablet {
     grid-column: 1/2;
     grid-row: 2;
+    grid-gap: 3rem;
   }
 
   @include mobile {
     grid-column: 1/2;
     grid-row: 2;
+    grid-gap: 1rem;
   }
 }
 

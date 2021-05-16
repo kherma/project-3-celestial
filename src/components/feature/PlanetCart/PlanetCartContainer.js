@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import PlanetCart from './PlanetCart';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+import { removeFromCart } from '../../../redux/cartRedux';
 
-const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
-});
+// const mapStateToProps = (state) => ({
+//   selector: sampleSelector(state),
+// });
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  remove: (arg) => dispatch(removeFromCart(arg)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlanetCart);
+export default connect(null, mapDispatchToProps)(PlanetCart);
