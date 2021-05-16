@@ -1,0 +1,40 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
+
+.root {
+  width: 100%;
+  transition: all 0.3s;
+  background-color: $light;
+
+  &:hover {
+    @include spaceBackground;
+
+    & .currancy {
+      @include currancyStyles($dark, $light, 3rem, 3rem);
+      color: $light;
+    }
+
+    & .btnCheckout {
+      background-color: $light;
+      color: $dark;
+    }
+  }
+}
+
+.currancy {
+  @include currancyStyles($light, $dark, 3rem, 3rem);
+  margin-bottom: 3rem;
+  transition: all 0.3s;
+}
+
+.btnCheckout {
+  width: 100%;
+  padding: 2rem 4rem;
+  background-color: $dark;
+  color: $light;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
