@@ -19,7 +19,7 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
 
   return (
     <ArticlePaper className={clsx(styles.root, className)}>
-      <div
+      <button
         className={clsx(styles.tshirtContainer, show && styles.show)}
         onClick={toggleShow}
       >
@@ -30,7 +30,7 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
         <div className={styles.CurrancyContainer}>
           <CurrancyDisplay amount={1} containerClass={styles.currancy} />
         </div>
-      </div>
+      </button>
       <TshirtForm
         className={clsx(styles.formContainer, show && styles.formShow)}
         tshirt={tshirt}

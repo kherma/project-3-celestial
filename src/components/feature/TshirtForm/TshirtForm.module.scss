@@ -1,10 +1,21 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
 .root {
   padding: 5rem 1rem;
   background-color: $grey-dark-2;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
+
+  @include tablet {
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+
+  @include mobile {
+    padding: 1rem;
+    border-radius: 2rem;
+  }
 }
 
 .form {

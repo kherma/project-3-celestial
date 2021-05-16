@@ -7,6 +7,7 @@
   grid-template-columns: auto 1fr;
   place-items: center;
   width: 100%;
+  min-height: 50rem;
 }
 
 .formContainer {
@@ -14,8 +15,27 @@
   position: absolute;
   z-index: 1;
   transition: all 1s;
+
   &.formShow {
     transform: translateX(65%);
+  }
+
+  @include tablet {
+    width: 70%;
+
+    &.formShow {
+      transform: translate(15%, 30%);
+    }
+  }
+
+  @include mobile {
+    width: 90%;
+
+    transform: translateY(0) scale(0.5);
+
+    &.formShow {
+      transform: translateY(30%);
+    }
   }
 }
 
@@ -31,6 +51,30 @@
 
   &.show {
     transform: translateX(-35%);
+  }
+
+  @include tablet {
+    padding: 1rem;
+
+    &.show {
+      transform: translate(-20%, -50%) scale(0.5);
+    }
+  }
+
+  @include mobile {
+    padding: 1rem;
+
+    &.show {
+      transform: translateY(-50%) scale(0.5);
+    }
+  }
+
+  @include mobile-small {
+    padding: 1rem;
+
+    &.show {
+      transform: translateY(-70%) scale(0.8);
+    }
   }
 }
 
@@ -74,6 +118,16 @@
     border-top: 4rem solid $grey-dark-3;
     border-left: 4rem solid transparent;
     border-right: 4rem solid transparent;
+  }
+
+  @include tablet {
+    width: 25rem;
+    height: 20rem;
+  }
+
+  @include mobile-small {
+    width: 20rem;
+    height: 15rem;
   }
 }
 
