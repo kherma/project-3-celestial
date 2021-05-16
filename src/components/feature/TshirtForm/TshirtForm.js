@@ -9,11 +9,15 @@ import InputSize from '../../common/InputRadioSize/InputRadioSize';
 import InputCounter from '../../common/InpitCounter/InpitCounter';
 
 const TshirtForm = ({ className, tshirt }) => {
-  const { register, handleSubmit, setValue, reset } = useForm();
+  const { register, handleSubmit, setValue, getValues, reset } = useForm();
 
-  const handleForm = (data) => {
+  const handleReset = () => {
     reset({ qunatity: 1, color: '#000', size: 'm' });
     tshirt.current.style.backgroundColor = '#000';
+  };
+
+  const handleForm = (data) => {
+    handleReset();
     console.log(data);
   };
 
@@ -44,7 +48,7 @@ const TshirtForm = ({ className, tshirt }) => {
           <InputSize reg={register} value="xl" />
         </div>
         <div className={styles.countPicker}>
-          <InputCounter reg={register} setter={setValue} />
+          <InputCounter reg={register} set={setValue} get={getValues} />
           <button className={styles.btnSubmit} type="submit">
             add
           </button>

@@ -1,37 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './InpitCounter.module.scss';
 import PropTypes from 'prop-types';
 
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 
-const InpitCounter = ({ reg, setter }) => {
-  const [count, setCount] = useState(1);
-
-  const handleChange = (value) => {
-    if (count <= 1 && value === -1) {
-      setCount(1);
-      setter('qunatity', count);
+const InpitCounter = ({ reg, set, get }) => {
+  const handleIncrement = () => {
+    if (get('qunatity') >= 999) {
+      set('qunatity', 999);
       return;
     }
+    set('qunatity', get('qunatity') + 1);
+  };
 
-    if (count >= 999 && value === 1) {
-      setCount(999);
-      setter('qunatity', count);
+  const handleDecrement = () => {
+    if (get('qunatity') <= 1) {
+      set('qunatity', 1);
       return;
     }
-    console.log(value);
-    setCount(count + value);
-    setter('qunatity', count);
+    set('qunatity', get('qunatity') - 1);
   };
 
   return (
     <div className={styles.root}>
-      <span className={styles.iconContainer} onClick={() => handleChange(1)}>
+      <span className={styles.iconContainer} onClick={handleIncrement}>
         <FaChevronUp className={styles.icon} />
       </span>
       <input
+        defaultValue={1}
         className={styles.input}
-        defaultValue={count}
         type="number"
         {...reg('qunatity', {
           valueAsNumber: true,
@@ -40,8 +37,8 @@ const InpitCounter = ({ reg, setter }) => {
           max: 999,
         })}
       />
-      <span className={styles.iconContainer} onClick={() => handleChange(-1)}>
-        <FaChevronDown className={styles.icon} />
+      <span className={styles.iconContainer}>
+        <FaChevronDown className={styles.icon} onClick={handleDecrement} />
       </span>
     </div>
   );
@@ -49,7 +46,8 @@ const InpitCounter = ({ reg, setter }) => {
 
 InpitCounter.propTypes = {
   reg: PropTypes.func,
-  setter: PropTypes.func,
+  set: PropTypes.func,
+  get: PropTypes.func,
 };
 
 InpitCounter.defaultProps = {
