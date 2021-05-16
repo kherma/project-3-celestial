@@ -25,4 +25,8 @@ InputRadioSize.propTypes = {
   checked: PropTypes.bool,
 };
 
+InputRadioSize.defaultProps = {
+  reg: () => {},
+};
+
 export default InputRadioSize;

@@ -52,4 +52,8 @@ InpitCounter.propTypes = {
   setter: PropTypes.func,
 };
 
+InpitCounter.defaultProps = {
+  reg: () => {},
+};
+
 export default InpitCounter;

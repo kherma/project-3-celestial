@@ -33,4 +33,8 @@ InputRadioColor.propTypes = {
   checked: PropTypes.bool,
 };
 
+InputRadioColor.defaultProps = {
+  reg: () => {},
+};
+
 export default InputRadioColor;
