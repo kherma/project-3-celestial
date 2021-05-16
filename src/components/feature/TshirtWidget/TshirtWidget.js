@@ -35,6 +35,7 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
         className={clsx(styles.formContainer, show && styles.formShow)}
         tshirt={tshirt}
         id={id}
+        planetStyles={planetStyles}
       />
     </ArticlePaper>
   );

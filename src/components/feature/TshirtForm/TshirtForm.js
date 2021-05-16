@@ -8,7 +8,7 @@ import InputColor from '../../common/InputRadioColor/InputRadioColor';
 import InputSize from '../../common/InputRadioSize/InputRadioSize';
 import InputCounter from '../../common/InpitCounter/InpitCounter';
 
-const TshirtForm = ({ className, tshirt, id, addExtras }) => {
+const TshirtForm = ({ className, tshirt, id, addExtras, planetStyles }) => {
   const { register, handleSubmit, setValue, getValues, reset } = useForm();
 
   const handleReset = () => {
@@ -18,7 +18,7 @@ const TshirtForm = ({ className, tshirt, id, addExtras }) => {
 
   const handleForm = (data) => {
     handleReset();
-    const submitData = { ...data, id };
+    const submitData = { ...data, id, planetStyles };
     addExtras(submitData);
   };
 
@@ -62,6 +62,7 @@ const TshirtForm = ({ className, tshirt, id, addExtras }) => {
 TshirtForm.propTypes = {
   className: PropTypes.string,
   tshirt: PropTypes.object,
+  planetStyles: PropTypes.object,
   id: PropTypes.string,
   addExtras: PropTypes.func,
 };
