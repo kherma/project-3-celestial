@@ -16,6 +16,7 @@ const TshirtForm = ({
   addExtras,
   planetStyles,
   modal,
+  tshirtPrice,
 }) => {
   const { register, handleSubmit, setValue, getValues, reset } = useForm();
 
@@ -26,7 +27,14 @@ const TshirtForm = ({
 
   const handleForm = (data) => {
     handleReset();
-    const submitData = { ...data, planetID: id, id: uuidv4(), planetStyles };
+
+    const submitData = {
+      ...data,
+      price: data.qunatity * tshirtPrice,
+      planetID: id,
+      id: uuidv4(),
+      planetStyles,
+    };
     addExtras(submitData);
     modal({
       show: true,
@@ -78,6 +86,7 @@ TshirtForm.propTypes = {
   id: PropTypes.string,
   addExtras: PropTypes.func,
   modal: PropTypes.func,
+  tshirtPrice: PropTypes.number,
 };
 
 export default TshirtForm;

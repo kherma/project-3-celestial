@@ -38,7 +38,14 @@ export const initialState = {
     data: [],
   },
   extras: {
+    tshirtBase: 1,
     data: [],
+  },
+  order: {
+    loading: {
+      processed: false,
+      error: false,
+    },
   },
   modal: {
     show: false,

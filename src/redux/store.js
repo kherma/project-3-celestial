@@ -10,6 +10,7 @@ import modalReducer from './modalRedux';
 import planetReducer from './planetRedux';
 import seedReducer from './seedRedux';
 import extrasReducer from './extrasRedux';
+import orderReducer from './orderRedux';
 
 // define reducers
 const reducers = {
@@ -20,6 +21,7 @@ const reducers = {
   planet: planetReducer,
   discover: seedReducer,
   extras: extrasReducer,
+  order: orderReducer,
 };
 
 // add blank reducers for initial state properties without reducers

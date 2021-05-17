@@ -8,7 +8,7 @@ import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
 import TshirtForm from '../TshirtForm/TshirtFormContainer';
 import TshirtView from '../../common/TshirtView/TshirtView';
 
-const TshirtWidget = ({ className, planetStyles, id }) => {
+const TshirtWidget = ({ className, planetStyles, id, tshirtPrice }) => {
   const tshirt = useRef();
 
   const [show, setShow] = useState(false);
@@ -25,7 +25,10 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
       >
         <TshirtView tshirt={tshirt} planetStyles={planetStyles} size="large" />
         <div className={styles.CurrancyContainer}>
-          <CurrancyDisplay amount={1} containerClass={styles.currancy} />
+          <CurrancyDisplay
+            amount={tshirtPrice}
+            containerClass={styles.currancy}
+          />
         </div>
       </button>
       <TshirtForm
@@ -33,6 +36,7 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
         tshirt={tshirt}
         id={id}
         planetStyles={planetStyles}
+        tshirtPrice={tshirtPrice}
       />
     </ArticlePaper>
   );
@@ -42,6 +46,7 @@ TshirtWidget.propTypes = {
   className: PropTypes.string,
   planetStyles: PropTypes.object,
   id: PropTypes.string,
+  tshirtPrice: PropTypes.number,
 };
 
 TshirtWidget.defaultProps = {

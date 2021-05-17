@@ -102,9 +102,16 @@
     @include currancyStyles($dark, $light, 3rem, 3rem);
     color: $light;
     margin-right: 5rem;
+    min-width: 15rem;
 
     @include tablet {
       margin-right: 3rem;
+      @include currancyStyles($dark, $light, 2rem, 2rem);
+    }
+
+    @include mobile-small {
+      margin-right: 3rem;
+      @include currancyStyles($dark, $light, 2rem, 2rem);
     }
   }
 

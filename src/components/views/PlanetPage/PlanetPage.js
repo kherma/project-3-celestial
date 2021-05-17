@@ -7,7 +7,7 @@ import Visualization from '../../common/PlanetProductViz/PlanetProductViz';
 import Atmosphere from '../../common/PlanetProductAtmosphere/PlanetProductAtmosphere';
 import Distance from '../../common/PlanetProductDistance/PlanetProductDistance';
 import Data from '../../common/PlanetProductData/PlanetProductData';
-import TshirtWidget from '../../feature/TshirtWidget/TshirtWidget';
+import TshirtWidget from '../../feature/TshirtWidget/TshirtWidgetContainer';
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
 
 const PlanetPage = ({

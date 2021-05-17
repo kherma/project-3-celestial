@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import TshirtWidget from './TshirtWidget';
-import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+import { getBasePrice } from '../../../redux/extrasRedux';
 
 const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
+  tshirtPrice: getBasePrice(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   action: (arg) => dispatch(sampleActionCreator(arg)),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TshirtWidget);
+export default connect(mapStateToProps)(TshirtWidget);

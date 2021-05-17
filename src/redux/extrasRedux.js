@@ -1,5 +1,6 @@
 /* selectors */
 export const getExtras = ({ extras }) => extras.data;
+export const getBasePrice = ({ extras }) => extras.tshirtBase;
 
 /* action name creator */
 const reducerName = 'extras';
@@ -45,10 +46,12 @@ export default function reducer(statePart = [], action = {}) {
 
       if (index !== -1) {
         newExtras[index].qunatity += action.payload.qunatity;
+        newExtras[index].price += action.payload.price;
       }
       if (index === -1) {
         newExtras.push(action.payload);
       }
+
       localStorage.setItem('extras', JSON.stringify(newExtras));
       return {
         ...statePart,
@@ -73,9 +76,13 @@ export default function reducer(statePart = [], action = {}) {
       };
     }
     case SAVE_EXTRAS_CHANGES: {
+      const { tshirtBase } = statePart;
       const newExtras = [...statePart.data];
       const index = newExtras.findIndex(({ id }) => id === action.payload.id);
-      newExtras[index] = action.payload;
+      newExtras[index] = {
+        ...action.payload,
+        price: action.payload.qunatity * tshirtBase,
+      };
       localStorage.setItem('extras', JSON.stringify(newExtras));
       return {
         ...statePart,

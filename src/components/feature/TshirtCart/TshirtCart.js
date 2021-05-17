@@ -13,7 +13,7 @@ import TshirtView from '../../common/TshirtView/TshirtView';
 import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
 
 const TshirtCart = ({
-  extras: { qunatity, color, size, id, planetStyles },
+  extras: { qunatity, color, size, id, planetStyles, price },
   remove,
   save,
 }) => {
@@ -77,7 +77,7 @@ const TshirtCart = ({
         </button>
       </form>
       <div className={styles.dataContainer}>
-        <CurrancyDisplay amount={qunatity} containerClass={styles.currancy} />
+        <CurrancyDisplay amount={price} containerClass={styles.currancy} />
         <button className={styles.btnRemove} onClick={() => remove(id)}>
           <FaTrash className={styles.icon} />
         </button>
