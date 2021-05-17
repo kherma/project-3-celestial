@@ -2,6 +2,7 @@ import Axios from 'axios';
 
 /* selectors */
 export const getData = ({ order }) => order;
+export const getDescription = ({ order }) => order.description;
 export const getTotal = (state) => {
   const {
     cart: { data: cart },
@@ -23,11 +24,20 @@ const reducerName = 'order';
 const createActionName = (name) => `action/${reducerName}/${name}`;
 
 /* action types */
+const ADD_DESCRIPTION = createActionName('ADD_DESCRIPTION');
+const SET_DESCRIPTION = createActionName('SET_DESCRIPTION');
 const POST_START = createActionName('POST_START');
 const POST_SUCCESS = createActionName('POST_SUCCESS');
 const POST_ERROR = createActionName('POST_ERROR');
 
 /* action creators */
+export const addDescription = (payload) => ({
+  payload,
+  type: ADD_DESCRIPTION,
+});
+export const setDescription = () => ({
+  type: SET_DESCRIPTION,
+});
 export const postStart = () => ({
   type: POST_START,
 });
@@ -56,6 +66,21 @@ export const addOrderRequest = (data) => {
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
+    case ADD_DESCRIPTION: {
+      const { description } = action.payload;
+      localStorage.setItem('description', JSON.stringify(description));
+      return {
+        ...statePart,
+        description: description,
+      };
+    }
+    case SET_DESCRIPTION: {
+      const description = JSON.parse(localStorage.getItem('description'));
+      return {
+        ...statePart,
+        description: description,
+      };
+    }
     case POST_START: {
       return {
         ...statePart,

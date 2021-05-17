@@ -1,20 +1,65 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './SubmitCart.module.scss';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
 
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
-import CurrancyDisplay from '../../common/CurrancyDisplay/CurrancyDisplay';
 
-const SubmitCart = () => {
+const SubmitCart = ({ description, newDescription, loadDescription }) => {
+  useEffect(() => {
+    localStorage.getItem('description') && loadDescription();
+  }, [loadDescription]);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleForm = (data) => {
+    const newData = {
+      ...data,
+      description: data.description.trim(),
+    };
+    newDescription(newData);
+  };
+
   return (
     <ArticlePaper className={styles.root}>
-      <CurrancyDisplay containerClass={styles.currancy} amount={0} />
-      <button className={styles.btnCheckout}>checkout</button>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit((data) => handleForm(data))}
+      >
+        {errors.description?.type === 'required' && (
+          <small className={styles.message}>{errors.description.message}</small>
+        )}
+        {errors.description?.type === 'minLength' && (
+          <small className={styles.message}>{errors.description.message}</small>
+        )}
+        {errors.description?.type === 'validate' && (
+          <small className={styles.message}>Remove white spaces</small>
+        )}
+        <input
+          type="text"
+          defaultValue={description}
+          placeholder="Please provide description"
+          className={styles.description}
+          {...register('description', {
+            required: { value: true, message: 'Description is required' },
+            validate: (value) => value.trim().length >= 5,
+            minLength: { value: 5, message: 'min 5 characters' },
+          })}
+        />
+
+        <button className={styles.btnCheckout}>checkout</button>
+      </form>
     </ArticlePaper>
   );
 };
 
-// SubmitCart.propTypes = {
-// };
+SubmitCart.propTypes = {
+  description: PropTypes.string,
+  newDescription: PropTypes.func,
+  loadDescription: PropTypes.func,
+};
 
 export default SubmitCart;

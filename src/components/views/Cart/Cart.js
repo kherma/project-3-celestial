@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
-import SubmitCart from '../../feature/SubmitCart/SubmitCart';
+import SubmitCart from '../../feature/SubmitCart/SubmitCartContainer';
 import PlanetCart from '../../feature/PlanetCart/PlanetCartContainer';
 import TshirtCart from '../../feature/TshirtCart/TshirtCartContainer';
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';

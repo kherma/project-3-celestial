@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 import SubmitCart from './SubmitCart';
 import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+  getDescription,
+  addDescription,
+  setDescription,
+} from '../../../redux/orderRedux';
 
 const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
+  description: getDescription(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  newDescription: (arg) => dispatch(addDescription(arg)),
+  loadDescription: (arg) => dispatch(setDescription(arg)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubmitCart);

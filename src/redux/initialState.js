@@ -42,6 +42,7 @@ export const initialState = {
     data: [],
   },
   order: {
+    description: '',
     loading: {
       processed: false,
       error: false,
