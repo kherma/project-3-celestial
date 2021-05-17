@@ -1,4 +1,130 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
-// .root {
-// }
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  background-color: $dark;
+  border-radius: 2rem;
+
+  @include mobile {
+    flex-direction: column;
+    min-height: 50rem;
+    justify-content: space-evenly;
+  }
+}
+
+.tshirtContainer {
+  position: relative;
+  background-color: $grey-light-3;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+    row-gap: 1rem;
+  }
+
+  & .countPicker {
+    grid-column: 1/3;
+    grid-row: 1/6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile {
+      grid-column: 2/3;
+    }
+  }
+
+  & .colorPicker {
+    grid-column: 3/10;
+    grid-row: 1/3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > * {
+      border: 1px solid $light;
+    }
+
+    @include mobile {
+      grid-column: 4/12;
+    }
+  }
+
+  & .sizePicker {
+    grid-column: 3/10;
+    grid-row: 3/6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile {
+      grid-column: 4/12;
+    }
+  }
+
+  & .btnSubmit {
+    grid-row: 3/4;
+    grid-column: 11/13;
+    background-color: $light;
+    color: $dark;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $grey-dark-3;
+      color: $light;
+    }
+
+    @include mobile {
+      grid-row: 7/8;
+      grid-column: 2/12;
+      padding: 1rem;
+    }
+  }
+}
+
+.dataContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+  & .currancy {
+    @include currancyStyles($dark, $light, 3rem, 3rem);
+    color: $light;
+    margin-right: 5rem;
+
+    @include tablet {
+      margin-right: 3rem;
+    }
+  }
+
+  & .btnRemove {
+    padding: 1rem;
+    background-color: $light;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+
+    & .icon {
+      color: $dark;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      background-color: $grey-dark-3;
+
+      & .icon {
+        color: $light;
+      }
+    }
+  }
+}

@@ -3,10 +3,11 @@ import styles from './Cart.module.scss';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 import SubmitCart from '../../feature/SubmitCart/SubmitCart';
 import PlanetCart from '../../feature/PlanetCart/PlanetCartContainer';
-import TshirtCart from '../../feature/TshirtCart/TshirtCart';
+import TshirtCart from '../../feature/TshirtCart/TshirtCartContainer';
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
 
 const Cart = ({ cart, extras }) => {
@@ -15,7 +16,15 @@ const Cart = ({ cart, extras }) => {
       <div className={styles.root}>
         <section className={styles.productsContainer}>
           {Boolean(cart.length) && <PlanetCart cart={cart} />}
-          {Boolean(extras.length) && <TshirtCart />}
+          {Boolean(extras.length) && (
+            <ArticlePaper>
+              <>
+                {extras.map((item) => (
+                  <TshirtCart key={uuidv4()} extras={item} />
+                ))}
+              </>
+            </ArticlePaper>
+          )}
         </section>
         <section className={styles.submitContainer}>
           <SubmitCart />

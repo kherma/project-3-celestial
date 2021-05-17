@@ -23,11 +23,7 @@ const TshirtWidget = ({ className, planetStyles, id }) => {
         className={clsx(styles.tshirtContainer, show && styles.show)}
         onClick={toggleShow}
       >
-        <TshirtView
-          tshirt={tshirt}
-          planetStyles={planetStyles}
-          className={styles.tshirt}
-        />
+        <TshirtView tshirt={tshirt} planetStyles={planetStyles} size="large" />
         <div className={styles.CurrancyContainer}>
           <CurrancyDisplay amount={1} containerClass={styles.currancy} />
         </div>

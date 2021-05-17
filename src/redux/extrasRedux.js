@@ -9,6 +9,7 @@ const createActionName = (name) => `action/${reducerName}/${name}`;
 const ADD_TO_EXTRAS = createActionName('ADD_TO_EXTRAS');
 const REMOVE_FROM_EXTRAS = createActionName('REMOVE_FROM_EXTRAS');
 const SET_EXTRAS_DATA = createActionName('SET_EXTRAS_DATA');
+const SAVE_EXTRAS_CHANGES = createActionName('SAVE_EXTRAS_CHANGES');
 
 /* action creators */
 export const addToExtras = (payload) => ({
@@ -25,12 +26,29 @@ export const setExtrasData = () => ({
   type: SET_EXTRAS_DATA,
 });
 
+export const saveExtrasChanges = (payload) => ({
+  payload,
+  type: SAVE_EXTRAS_CHANGES,
+});
+
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case ADD_TO_EXTRAS: {
       const newExtras = [...statePart.data];
-      newExtras.push(action.payload);
+      const index = newExtras.findIndex(
+        ({ planetID, color, size }) =>
+          planetID === action.payload.planetID &&
+          color === action.payload.color &&
+          size === action.payload.size
+      );
+
+      if (index !== -1) {
+        newExtras[index].qunatity += action.payload.qunatity;
+      }
+      if (index === -1) {
+        newExtras.push(action.payload);
+      }
       localStorage.setItem('extras', JSON.stringify(newExtras));
       return {
         ...statePart,
@@ -39,7 +57,7 @@ export default function reducer(statePart = [], action = {}) {
     }
     case REMOVE_FROM_EXTRAS: {
       const newExtras = [...statePart.data];
-      const index = newExtras.indexOf(action.payload);
+      const index = newExtras.findIndex(({ id }) => id === action.payload);
       newExtras.splice(index, 1);
       localStorage.setItem('extras', JSON.stringify(newExtras));
       return {
@@ -49,6 +67,16 @@ export default function reducer(statePart = [], action = {}) {
     }
     case SET_EXTRAS_DATA: {
       const newExtras = JSON.parse(localStorage.getItem('extras'));
+      return {
+        ...statePart,
+        data: newExtras,
+      };
+    }
+    case SAVE_EXTRAS_CHANGES: {
+      const newExtras = [...statePart.data];
+      const index = newExtras.findIndex(({ id }) => id === action.payload.id);
+      newExtras[index] = action.payload;
+      localStorage.setItem('extras', JSON.stringify(newExtras));
       return {
         ...statePart,
         data: newExtras,

@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import TshirtCart from './TshirtCart';
 import {
-  sampleSelector,
-  sampleActionCreator,
-} from '../../../redux/globalRedux';
+  removeFromExtras,
+  saveExtrasChanges,
+} from '../../../redux/extrasRedux';
 
-const mapStateToProps = (state) => ({
-  selector: sampleSelector(state),
-});
+// const mapStateToProps = (state) => ({
+//   selector: sampleSelector(state),
+// });
 
 const mapDispatchToProps = (dispatch) => ({
-  action: (arg) => dispatch(sampleActionCreator(arg)),
+  remove: (arg) => dispatch(removeFromExtras(arg)),
+  save: (arg) => dispatch(saveExtrasChanges(arg)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TshirtCart);
+export default connect(null, mapDispatchToProps)(TshirtCart);

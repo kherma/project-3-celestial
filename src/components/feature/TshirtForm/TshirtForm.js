@@ -3,6 +3,7 @@ import styles from './TshirtForm.module.scss';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
 
 import InputColor from '../../common/InputRadioColor/InputRadioColor';
 import InputSize from '../../common/InputRadioSize/InputRadioSize';
@@ -18,7 +19,7 @@ const TshirtForm = ({ className, tshirt, id, addExtras, planetStyles }) => {
 
   const handleForm = (data) => {
     handleReset();
-    const submitData = { ...data, id, planetStyles };
+    const submitData = { ...data, planetID: id, id: uuidv4(), planetStyles };
     addExtras(submitData);
   };
 

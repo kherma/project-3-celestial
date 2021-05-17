@@ -4,13 +4,26 @@ import PropTypes from 'prop-types';
 import PlanetView from '../../common/PlanetView/PlanetView';
 import clsx from 'clsx';
 
-const TshirtView = ({ planetStyles, tshirt, className }) => {
+const TshirtView = ({ planetStyles, tshirt, size }) => {
   return (
     <>
-      <span ref={tshirt} className={clsx(styles.tshirt, className)}></span>
+      <span
+        ref={tshirt}
+        className={clsx(
+          styles.tshirt,
+          size === 'small' && styles.tSmall,
+          size === 'large' && styles.tLarge
+        )}
+      ></span>
 
-      <div className={styles.planetContainer}>
-        <PlanetView {...planetStyles} className={styles.planet} />
+      <div
+        className={clsx(
+          styles.planetContainer,
+          size === 'small' && styles.cSmall,
+          size === 'large' && styles.cLarge
+        )}
+      >
+        <PlanetView {...planetStyles} />
       </div>
     </>
   );
@@ -19,7 +32,7 @@ const TshirtView = ({ planetStyles, tshirt, className }) => {
 TshirtView.propTypes = {
   planetStyles: PropTypes.object,
   tshirt: PropTypes.object,
-  className: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default TshirtView;
