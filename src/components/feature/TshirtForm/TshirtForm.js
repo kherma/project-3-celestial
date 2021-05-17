@@ -9,7 +9,14 @@ import InputColor from '../../common/InputRadioColor/InputRadioColor';
 import InputSize from '../../common/InputRadioSize/InputRadioSize';
 import InputCounter from '../../common/InpitCounter/InpitCounter';
 
-const TshirtForm = ({ className, tshirt, id, addExtras, planetStyles }) => {
+const TshirtForm = ({
+  className,
+  tshirt,
+  id,
+  addExtras,
+  planetStyles,
+  modal,
+}) => {
   const { register, handleSubmit, setValue, getValues, reset } = useForm();
 
   const handleReset = () => {
@@ -21,6 +28,10 @@ const TshirtForm = ({ className, tshirt, id, addExtras, planetStyles }) => {
     handleReset();
     const submitData = { ...data, planetID: id, id: uuidv4(), planetStyles };
     addExtras(submitData);
+    modal({
+      show: true,
+      message: `${data.qunatity}x ${data.color} ${data.size}-size t-shirt was added to cart`,
+    });
   };
 
   return (
@@ -66,6 +77,7 @@ TshirtForm.propTypes = {
   planetStyles: PropTypes.object,
   id: PropTypes.string,
   addExtras: PropTypes.func,
+  modal: PropTypes.func,
 };
 
 export default TshirtForm;
