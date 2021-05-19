@@ -39,6 +39,11 @@ const Settings = lazy(() =>
 const Cart = lazy(() =>
   import(/* webpackPrefetch: true */ './components/views/Cart/CartContainer')
 );
+const Order = lazy(() =>
+  import(
+    /* webpackPrefetch: true */ './components/views/OrderPage/OrderPageContainer'
+  )
+);
 const NotFound = lazy(() =>
   import(/* webpackPrefetch: true */ './components/views/NotFound/NotFound')
 );
@@ -72,6 +77,7 @@ const App = () => {
               component={Settings}
             />
             <DashboardLayoutRoutes exact path="/cart" component={Cart} />
+            <DashboardLayoutRoutes exact path="/order" component={Order} />
             <DashboardLayoutRoutes exact path="*" component={NotFound} />
           </Switch>
         </Suspense>

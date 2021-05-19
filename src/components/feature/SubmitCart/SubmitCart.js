@@ -1,19 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './SubmitCart.module.scss';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 
+import { useHistory } from 'react-router-dom';
+
 import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
 
-const SubmitCart = ({ description, newDescription, loadDescription }) => {
-  useEffect(() => {
-    localStorage.getItem('description') && loadDescription();
-  }, [loadDescription]);
+const SubmitCart = ({ description, newDescription }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const history = useHistory();
 
   const handleForm = (data) => {
     const newData = {
@@ -21,6 +22,7 @@ const SubmitCart = ({ description, newDescription, loadDescription }) => {
       description: data.description.trim(),
     };
     newDescription(newData);
+    history.push('/order');
   };
 
   return (
@@ -59,7 +61,6 @@ const SubmitCart = ({ description, newDescription, loadDescription }) => {
 SubmitCart.propTypes = {
   description: PropTypes.string,
   newDescription: PropTypes.func,
-  loadDescription: PropTypes.func,
 };
 
 export default SubmitCart;

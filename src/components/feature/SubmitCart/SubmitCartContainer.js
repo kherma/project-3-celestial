@@ -1,10 +1,6 @@
 import { connect } from 'react-redux';
 import SubmitCart from './SubmitCart';
-import {
-  getDescription,
-  addDescription,
-  setDescription,
-} from '../../../redux/orderRedux';
+import { getDescription, addDescription } from '../../../redux/orderRedux';
 
 const mapStateToProps = (state) => ({
   description: getDescription(state),
@@ -12,7 +8,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   newDescription: (arg) => dispatch(addDescription(arg)),
-  loadDescription: (arg) => dispatch(setDescription(arg)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubmitCart);
