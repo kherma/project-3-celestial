@@ -1,4 +1,40 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputGroup {
+  width: 100%;
+  position: relative;
+  padding-top: 2rem;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  & .message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
+    font-weight: $bold;
+    color: $primary-pink-1;
+  }
+
+  & .input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid $grey;
+    border-radius: 0.5rem;
+
+    &:focus {
+      outline-color: $dark;
+    }
+  }
+}
