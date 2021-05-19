@@ -1,18 +1,20 @@
 import React from 'react';
 import styles from './DeliveryForm.module.scss';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
-const DeliveryForm = ({children }) => {
+import ArticlePaper from '../../common/ArticlePaper/ArticlePaper';
+
+const DeliveryForm = ({ className }) => {
   return (
-    <div className={styles.root}>
+    <ArticlePaper className={clsx(styles.root, className)}>
       <h2>DeliveryForm</h2>
-      {children}
-    </div>
+    </ArticlePaper>
   );
 };
 
 DeliveryForm.propTypes = {
-  children: PropTypes.node,
+  className: PropTypes.string,
 };
 
-export default DeliveryForm ;
+export default DeliveryForm;

@@ -23,26 +23,19 @@ const OrderPage = ({
 
   return (
     <div className={styles.root}>
-      <ArticlePaper className={styles.descriptionContainer}>
+      <ArticlePaper>
         <p className={styles.description}>{description}</p>
       </ArticlePaper>
-      <ArticlePaper className={styles.formContainer}>
-        <form className={styles.form}>
-          <OrderForm className={styles.orderForm} />
-          <DeliveryForm className={styles.deliveryForm} />
-          <div className={styles.submitContainer}>
-            <div className={styles.currancyContainer}>
-              <CurrancyDisplay
-                containerClass={styles.currancy}
-                amount={total}
-              />
-            </div>
-            <button className={styles.btnSubmit} type="submit">
-              submit
-            </button>
-          </div>
-        </form>
-      </ArticlePaper>
+      <form className={styles.form}>
+        <OrderForm className={styles.orderForm} />
+        <DeliveryForm className={styles.deliveryForm} />
+        <ArticlePaper className={styles.submitContainer}>
+          <CurrancyDisplay containerClass={styles.currancy} amount={total} />
+          <button className={styles.btnSubmit} type="submit">
+            submit
+          </button>
+        </ArticlePaper>
+      </form>
     </div>
   );
 };
