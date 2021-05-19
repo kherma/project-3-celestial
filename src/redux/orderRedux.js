@@ -7,16 +7,18 @@ export const getTotal = (state) => {
   const {
     cart: { data: cart },
     extras: { data: extras },
+    order: { deliveryPrice },
   } = state;
-
   if (!cart.length && !extras.length) return 0;
 
-  return cart
-    .concat(extras)
-    .map(({ price }) => price)
-    .reduce((acc, price) => {
-      return acc + price;
-    }, 0);
+  return (
+    cart
+      .concat(extras)
+      .map(({ price }) => price)
+      .reduce((acc, price) => {
+        return acc + price;
+      }, 0) + deliveryPrice
+  );
 };
 
 /* action name creator */
@@ -29,6 +31,7 @@ const SET_DESCRIPTION = createActionName('SET_DESCRIPTION');
 const POST_START = createActionName('POST_START');
 const POST_SUCCESS = createActionName('POST_SUCCESS');
 const POST_ERROR = createActionName('POST_ERROR');
+const ADD_DELIVERY_TO_TOTAL = createActionName('ADD_DELIVERY_TO_TOTAL');
 
 /* action creators */
 export const addDescription = (payload) => ({
@@ -48,6 +51,10 @@ export const postSuccess = (payload) => ({
 export const postError = (payload) => ({
   payload,
   type: POST_ERROR,
+});
+export const addToTotal = (payload) => ({
+  payload,
+  type: ADD_DELIVERY_TO_TOTAL,
 });
 
 /* thunk creators */
@@ -108,7 +115,12 @@ export default function reducer(statePart = [], action = {}) {
         },
       };
     }
-
+    case ADD_DELIVERY_TO_TOTAL: {
+      return {
+        ...statePart,
+        deliveryPrice: action.payload,
+      };
+    }
     default:
       return statePart;
   }

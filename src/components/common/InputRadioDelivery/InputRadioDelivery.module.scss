@@ -1,0 +1,170 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
+
+.root {
+  width: 100%;
+
+  &:first-child {
+    margin-bottom: 2rem;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child {
+    margin-top: 2rem;
+    @include tablet {
+      margin-top: 0;
+    }
+  }
+
+  & .inputHidden {
+    display: none;
+
+    &:checked + .premium {
+      background-color: $primary-green-4;
+
+      & .icon {
+        background: conic-gradient(
+          $primary-green-4 0.25turn,
+          transparent 0.25turn
+        );
+      }
+    }
+    &:checked + .regular {
+      background-color: $primary-yellow-2;
+      & .icon {
+        background: conic-gradient(
+          $primary-yellow-2 0.5turn,
+          transparent 0.5turn
+        );
+      }
+    }
+    &:checked + .economic {
+      background-color: $primary-pink-1;
+      & .icon {
+        background: $primary-pink-1;
+      }
+    }
+  }
+}
+
+.label {
+  width: 100%;
+  height: 100%;
+
+  & .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+    border-radius: 1rem;
+    background-color: $grey-light-3;
+    transition: all 0.3s;
+
+    @include tablet {
+      padding: 1rem 2rem;
+    }
+
+    @include mobile {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  & .iconContainer {
+    position: relative;
+    background-color: $light;
+    border-radius: 50%;
+    width: 2.8rem;
+    height: 2.8rem;
+    box-shadow: 0 0 0 0.5rem $light;
+    border: 3px solid $dark;
+
+    @include tablet {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    @include mobile {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: $dark;
+      top: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    & .icon {
+      display: block;
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: $light;
+      transition: all 0.3s;
+
+      @include tablet {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+
+      @include mobile {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+    }
+  }
+
+  & .description {
+    text-align: center;
+
+    & .title {
+      text-transform: uppercase;
+      border-bottom: 1px solid $dark;
+
+      @include tablet {
+        font-size: 2rem;
+      }
+
+      @include mobile {
+        font-size: 2rem;
+      }
+    }
+
+    & .text {
+      color: $grey-dark-3;
+
+      @include tablet {
+        font-size: 1.2rem;
+      }
+
+      @include mobile {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  & .currancy {
+    width: auto;
+    @include currancyStyles(inherit, $dark, 2rem, 2rem);
+
+    @include tablet {
+      @include currancyStyles(inherit, $dark, 2rem, 1.6rem);
+    }
+
+    @include mobile {
+      @include currancyStyles(inherit, $dark, 2rem, 1.6rem);
+    }
+  }
+}

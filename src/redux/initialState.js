@@ -43,6 +43,7 @@ export const initialState = {
   },
   order: {
     description: '',
+    deliveryPrice: 0,
     loading: {
       processed: false,
       error: false,
