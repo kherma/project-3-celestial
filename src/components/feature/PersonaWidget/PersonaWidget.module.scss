@@ -1,0 +1,20 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5rem;
+
+  @include tablet {
+    grid-gap: 3rem;
+  }
+
+  @include mobile {
+    grid-gap: 1rem;
+  }
+}
+
+.personaView {
+  min-height: 50rem;
+}

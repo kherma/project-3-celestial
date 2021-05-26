@@ -1,4 +1,14 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/mixins.scss';
 
-// .root {
-// }
+.root {
+  padding: 5rem;
+
+  @include tablet {
+    padding: 3rem;
+  }
+
+  @include mobile {
+    padding: 1rem;
+  }
+}

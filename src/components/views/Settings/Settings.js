@@ -1,18 +1,18 @@
 import React from 'react';
 import styles from './Settings.module.scss';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const Settings = ({children }) => {
+import PersonaWidget from '../../feature/PersonaWidget/PersonaWidget';
+
+const Settings = () => {
   return (
     <div className={styles.root}>
-      <h2>Settings</h2>
-      {children}
+      <PersonaWidget />
     </div>
   );
 };
 
-Settings.propTypes = {
-  children: PropTypes.node,
-};
+// Settings.propTypes = {
+// };
 
-export default Settings ;
+export default Settings;
