@@ -25,17 +25,6 @@ router.get('/random', async (req, res) => {
   }
 });
 
-// router.post('/planets', async (req, res) => {
-//   const { data, styles } = req.body;
-//   try {
-//     const newPlanet = new Planet({ data: data, styles: styles });
-//     await newPlanet.save();
-//     res.status(200).json(Planet);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get('/planets/:id', async (req, res) => {
   try {
     const result = await Planet.findById(req.params.id);

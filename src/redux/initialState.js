@@ -54,7 +54,7 @@ export const initialState = {
     message: '',
   },
   user: {
-    username: '',
-    persona: false,
+    username: 'username',
+    persona: true,
   },
 };
